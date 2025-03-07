@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`productListingMapper should map raw product listing response to the desired format 1`] = `
+{
+  "data": {
+    "products": [
+      {
+        "colors": [
+          {
+            "name": "Cream/Flowers",
+            "url": "",
+            "value": "#f0eeed",
+          },
+          {
+            "name": "Bright red/Patterned",
+            "url": "/pdp/satin-kaftan-dress?ct=true&colorId=1003&pid=1263361003",
+            "value": "#b91624",
+          },
+        ],
+        "id": "1263361002",
+        "image": {
+          "alt": "Satin kaftan dress - Cream/Flowers - Ladies | 1",
+          "height": 3240,
+          "url": "https://image.hm.com/assets/hm/6e/55/6e55414d5b24b5fec225db577eec54a4082a5ac0.jpg?imwidth=2160",
+          "width": 2160,
+        },
+        "limitedEdition": true,
+        "newArrival": true,
+        "outOfStock": false,
+        "price": {
+          "currency": "£",
+          "value": 44.99,
+        },
+        "salePrice": null,
+        "title": "Satin kaftan dress",
+        "url": "/pdp/satin-kaftan-dress?ct=true&colorId=1002&pid=1263361002",
+        "variants": {
+          "colors": [
+            {
+              "name": "Cream/Flowers",
+              "url": "",
+              "value": "#f0eeed",
+            },
+            {
+              "name": "Bright red/Patterned",
+              "url": "/pdp/satin-kaftan-dress?ct=true&colorId=1003&pid=1263361003",
+              "value": "#b91624",
+            },
+          ],
+        },
+      },
+    ],
+  },
+  "meta": {
+    "count": 1,
+    "left": 1,
+    "pagination": {
+      "page": 1,
+      "total": 1,
+    },
+  },
+}
+`;

@@ -1,0 +1,79 @@
+{
+  "data": {
+    "product": {
+      "id": "1263361003",
+      "title": "Satin kaftan dress",
+      "url": "/pdp/satin-kaftan-dress?ct=true&colorId=1002&pid=1263361003",
+      "images": [
+        {
+          "url": "https://image.hm.com/assets/hm/66/57/6657cf71e5346ca968ef1f4368a95c8099998e7f.jpg?imwidth=2160",
+          "alt": "Satin kaftan dress - Bright red/Patterned - Ladies | 1",
+          "width": 2160,
+          "height": 3240
+        },
+        {
+          "url": "https://image.hm.com/assets/hm/54/8a/548a58564689659c40120810d9038cb9d8b7476e.jpg?imwidth=2160",
+          "alt": "Satin kaftan dress - Bright red/Patterned - Ladies | 2",
+          "width": 2160,
+          "height": 3240
+        },
+        {
+          "url": "https://image.hm.com/assets/hm/fc/e7/fce70d341c615eb281975dc223856e9f0bcdc9bc.jpg?imwidth=2160",
+          "alt": "Satin kaftan dress - Bright red/Patterned - Ladies | 3",
+          "width": 2160,
+          "height": 3240
+        },
+        {
+          "url": "https://image.hm.com/assets/hm/7d/52/7d526b75f6c7abcb0eaa47400eda94d261b62259.jpg?imwidth=2160",
+          "alt": "Satin kaftan dress - Bright red/Patterned - Ladies | 4",
+          "width": 2160,
+          "height": 3240
+        },
+        {
+          "url": "https://image.hm.com/assets/hm/84/69/84690187ac7b8cf71672fb1711693377892cdeb3.jpg?imwidth=2160",
+          "alt": "Satin kaftan dress - Bright red/Patterned - Ladies | 5",
+          "width": 2160,
+          "height": 3240
+        },
+        {
+          "url": "https://image.hm.com/assets/hm/f8/19/f819b0014581e80f759f3373762f26e3335c6ddf.jpg?imwidth=2160",
+          "alt": "Satin kaftan dress - Bright red/Patterned - Ladies | 6",
+          "width": 2160,
+          "height": 3240
+        }
+      ],
+      "price": {
+        "value": 44.99,
+        "currency": "£"
+      },
+      "description": "<p>Acme Store Limited Edition • New Arrival</p><br/><p>Long dress in crêpe chiffon with a deep V-neckline and an unlined yoke and batwing sleeves detailed with covered elastication for a ruched effect. Loose fit with a narrow drawstring at the waist with dice-shaped metal beads. Viscose lining.</p>",
+      "materials": "<p>Shell: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p><br/><p>Lining: Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;.</p>",
+      "care_instructions": "<p>Machine wash at 30°. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam.</p>",
+      "sale_price": null,
+      "limited_edition": true,
+      "new_arrival": true,
+      "variants": {
+        "colors": [
+          {
+            "id": "1003",
+            "name": "Bright red/Patterned",
+            "value": "#b91624",
+            "image": {
+              "url": "https://image.hm.com/assets/hm/84/69/84690187ac7b8cf71672fb1711693377892cdeb3.jpg?imwidth=116",
+              "alt": "Bright red/Patterned",
+              "width": 116,
+              "height": 174
+            },
+            "url": "/pdp/satin-kaftan-dress?ct=true&colorId=1003&pid=1263361003",
+            "sizes": [
+              { "id": "001", "name": "XS-S", "quantity": 10 },
+              { "id": "002", "name": "M-L", "quantity": 0 },
+              { "id": "003", "name": "XL-XXL", "quantity": 0 }
+            ]
+          }
+        ]
+      },
+      "estimated_delivery_date": "2025-03-24T14:30:45.123Z"
+    }
+  }
+}

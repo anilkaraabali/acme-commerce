@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.grecaptcha-badge {
+  @apply hidden;
+}
+
+.container {
+  @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+}
+
+.clip-rect-0 {
+  clip: rect(0, 0, 0, 0);
+}
+
+.product-color-cross {
+  @apply absolute inset-0 size-full overflow-hidden;
+}
+
+.product-color-cross::before,
+.product-color-cross::after {
+  content: '';
+  transform-origin: center;
+  @apply absolute left-[calc(50%-1px/2)] top-[-15%] z-10 block h-[130%] w-px bg-default-500;
+}
+
+.product-color-cross::before {
+  @apply rotate-[-33.333deg];
+}
+
+.product-color-cross::after {
+  @apply rotate-[33.333deg];
+}

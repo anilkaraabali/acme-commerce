@@ -1,0 +1,216 @@
+{
+  "Error": {
+    "404": {
+      "title": "Oh no! You shouldn't be seeing this",
+      "detail": "Sorry, the page you're looking for doesn't exist."
+    },
+    "500": {
+      "title": "Oops, that's our mistake.",
+      "detail": "We're not quite sure what happened, but our servers say something is wrong. We apologize and are working to fix the issue. Please try again later."
+    },
+    "400": {
+      "title": "Something went wrong",
+      "detail": "There seems to be an error processing your request."
+    },
+    "cta": "Return to the homepage"
+  },
+  "Auth": {
+    "signIn": {
+      "prompt": {
+        "question": "Don't have an account yet?",
+        "cta": "Sign up"
+      },
+      "title": "Log in or Sign up",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+      "cta": {
+        "google": "Continue with Google",
+        "facebook": "Continue with Facebook",
+        "email": "Continue with Email",
+        "submit": "Sign into Acme Store"
+      },
+      "emailNotLinked": "It seems that the email you entered isn’t linked to any Acme Store account. Please check your email again or <signUpLink>sign up</signUpLink> for a new account."
+    },
+    "signUp": {
+      "title": "Sign up<br>and come on in",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+      "prompt": {
+        "question": "Already have an account?",
+        "cta": "Sign in"
+      },
+      "cta": {
+        "google": "Sign up with Google",
+        "facebook": "Sign up with Facebook",
+        "email": "Sign up with Email",
+        "createAccount": "Create my free account"
+      },
+      "terms": {
+        "label": "By signing up, you agree to our <a class='underline' href='#'>Terms of Service</a> and <a class='underline' href='#'>Privacy Policy</a>.",
+        "required": "Please accept the terms and conditions to finish the signup"
+      }
+    },
+    "profile": {
+      "link": {
+        "ariaLabel": "Go to profile",
+        "title": "Profile"
+      }
+    },
+    "account": {
+      "welcome": {
+        "title": "Welcome back, {name}",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+        "cta": "Go to dashboard"
+      }
+    },
+    "signOut": {
+      "title": "Sign out",
+      "description": "Are you sure you want to sign out?",
+      "cta": "Sign out"
+    },
+    "featureModal": {
+      "title": "Sign In to Access More",
+      "description": "Get the most out of Acme by signing in",
+      "saveFavorites": "<strong>Save</strong> favorites & wishlists",
+      "fastOrderTracking": "<strong>Fast</strong> & easy order tracking",
+      "exclusiveDiscounts": "<strong>Exclusive</strong> discounts & early access"
+    }
+  },
+  "Common": {
+    "cta": {
+      "signIn": "Sign in",
+      "signUp": "Sign up",
+      "noThanks": "No, thanks",
+      "showMore": "Show more",
+      "showLess": "Show less"
+    },
+    "or": "or",
+    "comingSoon": "Coming soon",
+    "homepage": {
+      "title": "Go to homepage",
+      "ariaLabel": "Go to homepage"
+    },
+    "theme": {
+      "dark": "Dark theme",
+      "light": "Light theme",
+      "system": "System theme"
+    },
+    "languageSwitch": {
+      "button": {
+        "ariaLabel": "Language switch",
+        "title": "Language switch"
+      },
+      "menu": {
+        "ariaLabel": "Language selection menu"
+      }
+    },
+    "newsletter": {
+      "title": "Get notified when we’re launching",
+      "description": "Reprehenderit ad esse et non officia in nulla. Id proident tempor incididunt nostrud nulla et culpa.",
+      "cta": "Notify me",
+      "alert": {
+        "title": "Success!"
+      }
+    },
+    "form": {
+      "required": "This field cannot be left blank",
+      "email": {
+        "label": "Email",
+        "placeholder": "Enter your email",
+        "errorMessage": "Invalid email. Email must be a valid email address"
+      },
+      "password": {
+        "label": "Password",
+        "placeholder": "Enter your password",
+        "errorMessage": {
+          "minLength": "Password must be at least 8 characters long"
+        }
+      },
+      "name": {
+        "label": "Full name",
+        "placeholder": "Enter your full name",
+        "errorMessage": "Full name must be at least 2 characters long"
+      }
+    },
+    "recaptcha": {
+      "info": "This site is protected by reCAPTCHA and the Google <a class='underline' href='https://policies.google.com/privacy'>Privacy Policy</a> and <a class='underline' href='https://policies.google.com/terms'>Terms of Service</a> apply."
+    },
+    "menu": {
+      "women": "Women",
+      "men": "Men",
+      "kids": "Kids",
+      "home": "Home"
+    },
+    "share": {
+      "facebook": "Share on Facebook",
+      "twitter": "Share on Twitter",
+      "x": "Share on X",
+      "whatsapp": "Share on WhatsApp",
+      "mail": "Share via Email",
+      "copyLink": "Copy link",
+      "copiedToClipboard": "Link has been copied to the clipboard"
+    },
+    "reviews": {
+      "label": "Reviews [{count}]",
+      "title": "Reviews",
+      "cta": "Write a review",
+      "noReviews": "No reviews yet",
+      "basedOnReviews": "Based on {count} customer reviews",
+      "legal": "Terms & Conditions Customer Rate & Review"
+    }
+  },
+  "Footer": {
+    "shop": "Shop",
+    "women": "Women",
+    "men": "Men",
+    "kids": "Kids",
+    "home": "Home",
+    "corpareteInfo": "Corparete Info",
+    "careers": "Career at Acme Store",
+    "about": "About Acme Store Group",
+    "sustainability": "Sustainability H&M group",
+    "press": "Press",
+    "help": "Help",
+    "customerService": "Customer Service",
+    "storeLocator": "Store Locator",
+    "giftCards": "Gift Cards",
+    "legal": "Legal & Privacy",
+    "termsOfService": "Terms of service",
+    "privacyPolicy": "Privacy policy",
+    "license": "License",
+    "copyright": "© 2025 Acme Store, Inc. All rights reserved.",
+    "tagline": "Your one-stop destination for fashion, home essentials, beauty products, kids."
+  },
+  "Home": {
+    "hero": {
+      "title": "Acme Store | Online Fashion, Homeware & Kids Clothes",
+      "shopNow": "Shop now"
+    }
+  },
+  "Product": {
+    "limitedEdition": "ACME STORE LIMITED EDITION",
+    "newArrival": "New Arrival",
+    "outOfStock": "Out of stock",
+    "arrivalDate": "Get it {date}",
+    "variants": {
+      "color": "Colour:",
+      "size": "Select size",
+      "selectedSize": "Selected size: {size}"
+    },
+    "vatInfo": "* VAT included / excl Shipping cost",
+    "cta": {
+      "addToCart": "Add to basket",
+      "notifyMe": "Notify me"
+    },
+    "details": {
+      "description": "Description",
+      "materials": "Materials",
+      "careGuide": "Care instructions",
+      "shipping": "Shipping & Returns",
+      "shippingInfo": "<p>Free standard delivery for members when spending £30 or more. Pick up in Acme Store free for all. Free and flexible returns for members.</p><br/><p>We accept card payments via MasterCard and Visa. You can also pay by Klarna, PayPal, Apple Pay or use your Acme giftcard.</p><br/><p>For external brands, a shipping fee might be applied. The shipping cost for each parcel will be shown at checkout. Find out more on our customer service pages.</p>",
+      "reviews": "Reviews"
+    },
+    "share": {
+      "title": "I found something interesting!",
+      "text": "Check this out!"
+    }
+  }
+}

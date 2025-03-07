@@ -1,0 +1,3 @@
+const USER_FAVORITES_STORAGE_KEY = 'userFavorites';
+
+export { USER_FAVORITES_STORAGE_KEY };

@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Error matches snapshot 1`] = `
+<div>
+  <div
+    class="pt-24"
+  >
+    <div
+      class="container flex flex-col items-center justify-center text-center"
+    >
+      <img
+        alt="Error illustration"
+        class="mb-6"
+        data-nimg="1"
+        decoding="async"
+        height="196"
+        loading="lazy"
+        src="/illustrations/error.svg"
+        style="color: transparent;"
+        width="396"
+      />
+      <h1
+        class="text-2xl"
+        data-testid="error-title"
+      >
+        500.title
+      </h1>
+      <p
+        class="mt-2 text-default-500"
+        data-testid="error-detail"
+      >
+        500.detail
+      </p>
+      <a
+        class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none shadow-lg shadow-primary/40 bg-primary text-primary-foreground data-[hover=true]:opacity-hover mt-6"
+        data-testid="error-cta"
+        href="/"
+        role="button"
+        tabindex="0"
+      >
+        cta
+        <svg
+          aria-hidden="true"
+          fill="currentColor"
+          focusable="false"
+          height="20"
+          stroke="currentColor"
+          stroke-width="0"
+          tabindex="-1"
+          viewBox="0 0 32 32"
+          width="20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M 18.71875 6.78125 L 17.28125 8.21875 L 24.0625 15 L 4 15 L 4 17 L 24.0625 17 L 17.28125 23.78125 L 18.71875 25.21875 L 27.21875 16.71875 L 27.90625 16 L 27.21875 15.28125 Z"
+          />
+        </svg>
+      </a>
+    </div>
+  </div>
+</div>
+`;
