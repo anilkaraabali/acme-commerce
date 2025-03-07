@@ -20,24 +20,15 @@ importers:
       '@react-aria/visually-hidden':
         specifier: ^3.8.17
         version: 3.8.17(react@18.2.0)
-      args:
-        specifier: ^5.0.3
-        version: 5.0.3
       bcryptjs:
         specifier: ^2.4.3
         version: 2.4.3
-      cli-color:
-        specifier: ^2.0.4
-        version: 2.0.4
       clsx:
         specifier: ^1.2.1
         version: 1.2.1
       dayjs:
         specifier: ^1.11.13
         version: 1.11.13
-      esbuild:
-        specifier: ^0.25.0
-        version: 0.25.0
       framer-motion:
         specifier: ^11.15.0
         version: 11.15.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
@@ -177,9 +168,18 @@ importers:
       '@typescript-eslint/utils':
         specifier: ^8.11.0
         version: 8.15.0(eslint@8.57.0)(typescript@5.6.3)
+      args:
+        specifier: ^5.0.3
+        version: 5.0.3
       autoprefixer:
         specifier: ^10.4.20
         version: 10.4.20(postcss@8.4.49)
+      cli-color:
+        specifier: ^2.0.4
+        version: 2.0.4
+      esbuild:
+        specifier: ^0.25.0
+        version: 0.25.0
       eslint:
         specifier: ^8.36.0
         version: 8.57.0
