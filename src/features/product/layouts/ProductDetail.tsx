@@ -55,7 +55,7 @@ function ProductDetail(props: ProductDetailProps) {
     []
   );
 
-  // TODO[AC-1]: Implement gallery modal
+  // TODO: Implement gallery modal
   const [, setGalleryImageIndex] = useState(0);
   const [isShareClicked, setIsShareClicked] = useState(false);
 

@@ -62,9 +62,11 @@ const Header = () => {
             >
               <LiaUserSolid size={20} />
             </Button>
+            {/* TODO: Implement favourites pages */}
             <Button as={NextLink} href='/favourites' isIconOnly variant='light'>
               <LiaHeart size={20} />
             </Button>
+            {/* TODO: Implement cart pages */}
             <Button as={NextLink} href='/cart' isIconOnly variant='light'>
               <LiaShoppingCartSolid size={20} />
             </Button>
