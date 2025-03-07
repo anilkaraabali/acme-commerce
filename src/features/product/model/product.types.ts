@@ -27,6 +27,7 @@ type ColorVariant = {
 
 interface Product {
   careInstructions: string;
+  colorId: string;
   description: string;
   estimatedDeliveryDate: string;
   id: string;

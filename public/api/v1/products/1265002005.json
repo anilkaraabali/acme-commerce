@@ -1,125 +1,212 @@
 {
   "data": {
     "product": {
+      "care_instructions": "<p>Machine wash at 30°. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam.</p>",
+      "category": "dresses",
+      "color_id": "1003",
+      "description": "<p>Acme Store Limited Edition • New Arrival</p><br/><p>Long dress in crêpe chiffon with a deep V-neckline and an unlined yoke and batwing sleeves detailed with covered elastication for a ruched effect. Loose fit with a narrow drawstring at the waist with dice-shaped metal beads. Viscose lining.</p>",
+      "estimated_delivery_date": "2025-03-24T14:30:45.123Z",
+      "gender": "ladies",
       "id": "1265002005",
-      "title": "Balloon-sleeved dress",
-      "url": "/pdp/balloon-sleeved-dress?ct=true&colorId=1001&pid=1265002005",
       "images": [
         {
-          "url": "https://image.hm.com/assets/hm/9c/10/9c10d9bc65e1ab524bd72ba7199514c8410eb237.jpg?imwidth=2160",
           "alt": "Balloon-sleeved dress - Black - Ladies | 1",
-          "width": 2160,
-          "height": 3240
+          "height": 3240,
+          "url": "https://image.hm.com/assets/hm/9c/10/9c10d9bc65e1ab524bd72ba7199514c8410eb237.jpg?imwidth=2160",
+          "width": 2160
         },
         {
-          "url": "https://image.hm.com/assets/hm/0d/42/0d42d90cca35fd986af6ab12aa36cda9da76c184.jpg?imwidth=2160",
           "alt": "Balloon-sleeved dress - Black - Ladies | 2",
-          "width": 2160,
-          "height": 3240
+          "height": 3240,
+          "url": "https://image.hm.com/assets/hm/0d/42/0d42d90cca35fd986af6ab12aa36cda9da76c184.jpg?imwidth=2160",
+          "width": 2160
         },
         {
-          "url": "https://image.hm.com/assets/hm/3d/45/3d453fe77b04aec81c0bd3b2af76a85b5f049b3d.jpg?imwidth=2160",
           "alt": "Balloon-sleeved dress - Black - Ladies | 3",
-          "width": 2160,
-          "height": 3240
+          "height": 3240,
+          "url": "https://image.hm.com/assets/hm/3d/45/3d453fe77b04aec81c0bd3b2af76a85b5f049b3d.jpg?imwidth=2160",
+          "width": 2160
         },
         {
-          "url": "https://image.hm.com/assets/hm/17/22/172230d734561a9f376b2e2eefde5a810c809377.jpg?imwidth=2160",
           "alt": "Balloon-sleeved dress - Black - Ladies | 4",
-          "width": 2160,
-          "height": 3240
+          "height": 3240,
+          "url": "https://image.hm.com/assets/hm/17/22/172230d734561a9f376b2e2eefde5a810c809377.jpg?imwidth=2160",
+          "width": 2160
         },
         {
-          "url": "https://image.hm.com/assets/hm/ff/61/ff61bee5f8016f5b0b5a83f60fa37dd64fabab10.jpg?imwidth=2160",
           "alt": "Balloon-sleeved dress - Black - Ladies | 5",
-          "width": 2160,
-          "height": 3240
+          "height": 3240,
+          "url": "https://image.hm.com/assets/hm/ff/61/ff61bee5f8016f5b0b5a83f60fa37dd64fabab10.jpg?imwidth=2160",
+          "width": 2160
         },
         {
-          "url": "https://image.hm.com/assets/hm/b7/f4/b7f472d7993b0c9e7a105eebee2b8a0a9977d98b.jpg?imwidth=2160",
           "alt": "Balloon-sleeved dress - Black - Ladies | 6",
-          "width": 2160,
-          "height": 3240
+          "height": 3240,
+          "url": "https://image.hm.com/assets/hm/b7/f4/b7f472d7993b0c9e7a105eebee2b8a0a9977d98b.jpg?imwidth=2160",
+          "width": 2160
         }
       ],
-      "price": {
-        "value": 27.99,
-        "currency": "£"
-      },
-      "description": "<p>Acme Store Limited Edition • New Arrival</p><br/><p>Long dress in crêpe chiffon with a deep V-neckline and an unlined yoke and batwing sleeves detailed with covered elastication for a ruched effect. Loose fit with a narrow drawstring at the waist with dice-shaped metal beads. Viscose lining.</p>",
-      "materials": "<p>Shell: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p><br/><p>Lining: Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;.</p>",
-      "care_instructions": "<p>Machine wash at 30°. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam.</p>",
-      "sale_price": null,
       "limited_edition": true,
+      "materials": "<p>Shell: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p><br/><p>Lining: Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;.</p>",
       "new_arrival": false,
+      "price": {
+        "currency": "£",
+        "value": 27.99
+      },
+      "sale_price": null,
+      "title": "Balloon-sleeved dress",
+      "url": "/pdp/balloon-sleeved-dress?ct=true&colorId=1001&pid=1265002005",
       "variants": {
         "colors": [
           {
             "id": "1001",
-            "name": "Black",
-            "value": "#000",
             "image": {
-              "url": "https://image.hm.com/assets/hm/ff/61/ff61bee5f8016f5b0b5a83f60fa37dd64fabab10.jpg?imwidth=116",
               "alt": "Black",
-              "width": 116,
-              "height": 174
+              "height": 174,
+              "url": "https://image.hm.com/assets/hm/ff/61/ff61bee5f8016f5b0b5a83f60fa37dd64fabab10.jpg?imwidth=116",
+              "width": 116
             },
-            "url": "/pdp/balloon-sleeved-dress?ct=true&colorId=1001&pid=1265002005",
+            "name": "Black",
             "sizes": [
-              { "id": "001", "name": "XXS", "quantity": 0 },
-              { "id": "002", "name": "XS", "quantity": 0 },
-              { "id": "003", "name": "S", "quantity": 0 },
-              { "id": "004", "name": "M", "quantity": 0 },
-              { "id": "005", "name": "L", "quantity": 30 },
-              { "id": "006", "name": "XL", "quantity": 30 },
-              { "id": "007", "name": "XXL", "quantity": 30 }
-            ]
+              {
+                "id": "001",
+                "name": "XXS",
+                "quantity": 0
+              },
+              {
+                "id": "002",
+                "name": "XS",
+                "quantity": 0
+              },
+              {
+                "id": "003",
+                "name": "S",
+                "quantity": 0
+              },
+              {
+                "id": "004",
+                "name": "M",
+                "quantity": 0
+              },
+              {
+                "id": "005",
+                "name": "L",
+                "quantity": 30
+              },
+              {
+                "id": "006",
+                "name": "XL",
+                "quantity": 30
+              },
+              {
+                "id": "007",
+                "name": "XXL",
+                "quantity": 30
+              }
+            ],
+            "url": "/pdp/balloon-sleeved-dress?ct=true&colorId=1001&pid=1265002005",
+            "value": "#000"
           },
           {
             "id": "1002",
-            "name": "Coral red",
-            "value": "#ec4f44",
             "image": {
-              "url": "https://image.hm.com/assets/hm/ad/e8/ade82ca18b4a18eb006cf360680ad25039072730.jpg?imwidth=116",
               "alt": "Coral red",
-              "width": 116,
-              "height": 174
+              "height": 174,
+              "url": "https://image.hm.com/assets/hm/ad/e8/ade82ca18b4a18eb006cf360680ad25039072730.jpg?imwidth=116",
+              "width": 116
             },
-            "url": "/pdp/balloon-sleeved-dress?ct=true&colorId=1002&pid=1265002001",
+            "name": "Coral red",
             "sizes": [
-              { "id": "001", "name": "XXS", "quantity": 0 },
-              { "id": "002", "name": "XS", "quantity": 20 },
-              { "id": "003", "name": "S", "quantity": 20 },
-              { "id": "004", "name": "M", "quantity": 20 },
-              { "id": "005", "name": "L", "quantity": 30 },
-              { "id": "006", "name": "XL", "quantity": 30 },
-              { "id": "007", "name": "XXL", "quantity": 30 }
-            ]
+              {
+                "id": "001",
+                "name": "XXS",
+                "quantity": 0
+              },
+              {
+                "id": "002",
+                "name": "XS",
+                "quantity": 20
+              },
+              {
+                "id": "003",
+                "name": "S",
+                "quantity": 20
+              },
+              {
+                "id": "004",
+                "name": "M",
+                "quantity": 20
+              },
+              {
+                "id": "005",
+                "name": "L",
+                "quantity": 30
+              },
+              {
+                "id": "006",
+                "name": "XL",
+                "quantity": 30
+              },
+              {
+                "id": "007",
+                "name": "XXL",
+                "quantity": 30
+              }
+            ],
+            "url": "/pdp/balloon-sleeved-dress?ct=true&colorId=1002&pid=1265002001",
+            "value": "#ec4f44"
           },
           {
             "id": "1003",
-            "name": "Light beige/Patterned",
-            "value": "#b6aea8",
             "image": {
-              "url": "https://image.hm.com/assets/hm/ee/bd/eebd5ce33327f98dda0103b04ea66ba6265ea0d7.jpg?imwidth=116",
               "alt": "Light beige/Patterned",
-              "width": 116,
-              "height": 174
+              "height": 174,
+              "url": "https://image.hm.com/assets/hm/ee/bd/eebd5ce33327f98dda0103b04ea66ba6265ea0d7.jpg?imwidth=116",
+              "width": 116
             },
-            "url": "/pdp/balloon-sleeved-dress?ct=true&colorId=1003&pid=1265002004",
+            "name": "Light beige/Patterned",
             "sizes": [
-              { "id": "001", "name": "XXS", "quantity": 0 },
-              { "id": "002", "name": "XS", "quantity": 0 },
-              { "id": "003", "name": "S", "quantity": 0 },
-              { "id": "004", "name": "M", "quantity": 0 },
-              { "id": "005", "name": "L", "quantity": 0 },
-              { "id": "006", "name": "XL", "quantity": 0 },
-              { "id": "007", "name": "XXL", "quantity": 30 }
-            ]
+              {
+                "id": "001",
+                "name": "XXS",
+                "quantity": 0
+              },
+              {
+                "id": "002",
+                "name": "XS",
+                "quantity": 0
+              },
+              {
+                "id": "003",
+                "name": "S",
+                "quantity": 0
+              },
+              {
+                "id": "004",
+                "name": "M",
+                "quantity": 0
+              },
+              {
+                "id": "005",
+                "name": "L",
+                "quantity": 0
+              },
+              {
+                "id": "006",
+                "name": "XL",
+                "quantity": 0
+              },
+              {
+                "id": "007",
+                "name": "XXL",
+                "quantity": 30
+              }
+            ],
+            "url": "/pdp/balloon-sleeved-dress?ct=true&colorId=1003&pid=1265002004",
+            "value": "#b6aea8"
           }
         ]
-      },
-      "estimated_delivery_date": "2025-03-24T14:30:45.123Z"
+      }
     }
   }
 }

@@ -25,10 +25,15 @@ type ColorVariant = {
   value: string;
 };
 
+type Gender = 'kids' | 'ladies' | 'men';
+
 interface ProductResponse {
   care_instructions: string;
+  category: string;
+  color_id: string;
   description: string;
   estimated_delivery_date: string;
+  gender: Gender;
   id: string;
   images: Image[];
   limited_edition: boolean;

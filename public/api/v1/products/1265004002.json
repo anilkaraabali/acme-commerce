@@ -1,59 +1,90 @@
 {
   "data": {
     "product": {
+      "care_instructions": "<p>Machine wash at 30°. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam.</p>",
+      "category": "dresses",
+      "color_id": "4002",
+      "description": "<p>Acme Store Limited Edition • New Arrival</p><br/><p>Long dress in crêpe chiffon with a deep V-neckline and an unlined yoke and batwing sleeves detailed with covered elastication for a ruched effect. Loose fit with a narrow drawstring at the waist with dice-shaped metal beads. Viscose lining.</p>",
+      "estimated_delivery_date": "2025-03-24T14:30:45.123Z",
+      "gender": "ladies",
       "id": "1265004002",
-      "title": "Long chiffon dress",
-      "url": "/pdp/long-chiffon-dress?ct=true&colorId=4002&pid=1265004002",
       "images": [
         {
-          "url": "https://image.hm.com/assets/hm/aa/9e/aa9e747ae2781cba90af94b3e85d1af256069c0d.jpg?imwidth=2160",
           "alt": "Long chiffon dress - Bright red - Ladies | 1",
-          "width": 2160,
-          "height": 3240
+          "height": 3240,
+          "url": "https://image.hm.com/assets/hm/aa/9e/aa9e747ae2781cba90af94b3e85d1af256069c0d.jpg?imwidth=2160",
+          "width": 2160
         },
         {
-          "url": "https://image.hm.com/assets/hm/18/48/18487d878b8897265018773776a81bb692a9aedd.jpg?imwidth=2160",
           "alt": "Long chiffon dress - Bright red - Ladies | 2",
-          "width": 2160,
-          "height": 3240
+          "height": 3240,
+          "url": "https://image.hm.com/assets/hm/18/48/18487d878b8897265018773776a81bb692a9aedd.jpg?imwidth=2160",
+          "width": 2160
         }
       ],
-      "price": {
-        "value": 54.99,
-        "currency": "£"
-      },
-      "description": "<p>Acme Store Limited Edition • New Arrival</p><br/><p>Long dress in crêpe chiffon with a deep V-neckline and an unlined yoke and batwing sleeves detailed with covered elastication for a ruched effect. Loose fit with a narrow drawstring at the waist with dice-shaped metal beads. Viscose lining.</p>",
-      "materials": "<p>Shell: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p><br/><p>Lining: Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;.</p>",
-      "care_instructions": "<p>Machine wash at 30°. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam.</p>",
-      "sale_price": null,
       "limited_edition": true,
+      "materials": "<p>Shell: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p><br/><p>Lining: Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;.</p>",
       "new_arrival": true,
+      "price": {
+        "currency": "£",
+        "value": 54.99
+      },
+      "sale_price": null,
+      "title": "Long chiffon dress",
+      "url": "/pdp/long-chiffon-dress?ct=true&colorId=4002&pid=1265004002",
       "variants": {
         "colors": [
           {
             "id": "4002",
-            "name": "Bright Red",
-            "value": "#d21c1c",
             "image": {
-              "url": "https://image.hm.com/assets/hm/aa/9e/aa9e747ae2781cba90af94b3e85d1af256069c0d.jpg?imwidth=116",
               "alt": "Bright Red",
-              "width": 116,
-              "height": 174
+              "height": 174,
+              "url": "https://image.hm.com/assets/hm/aa/9e/aa9e747ae2781cba90af94b3e85d1af256069c0d.jpg?imwidth=116",
+              "width": 116
             },
-            "url": "/pdp/long-chiffon-dress?ct=true&colorId=4002&pid=1265004002",
+            "name": "Bright Red",
             "sizes": [
-              { "id": "001", "name": "XXS", "quantity": 0 },
-              { "id": "002", "name": "XS", "quantity": 10 },
-              { "id": "003", "name": "S", "quantity": 10 },
-              { "id": "004", "name": "M", "quantity": 10 },
-              { "id": "005", "name": "L", "quantity": 5 },
-              { "id": "005", "name": "XL", "quantity": 10 },
-              { "id": "006", "name": "XXL", "quantity": 10 }
-            ]
+              {
+                "id": "001",
+                "name": "XXS",
+                "quantity": 0
+              },
+              {
+                "id": "002",
+                "name": "XS",
+                "quantity": 10
+              },
+              {
+                "id": "003",
+                "name": "S",
+                "quantity": 10
+              },
+              {
+                "id": "004",
+                "name": "M",
+                "quantity": 10
+              },
+              {
+                "id": "005",
+                "name": "L",
+                "quantity": 5
+              },
+              {
+                "id": "005",
+                "name": "XL",
+                "quantity": 10
+              },
+              {
+                "id": "006",
+                "name": "XXL",
+                "quantity": 10
+              }
+            ],
+            "url": "/pdp/long-chiffon-dress?ct=true&colorId=4002&pid=1265004002",
+            "value": "#d21c1c"
           }
         ]
-      },
-      "estimated_delivery_date": "2025-03-24T14:30:45.123Z"
+      }
     }
   }
 }
