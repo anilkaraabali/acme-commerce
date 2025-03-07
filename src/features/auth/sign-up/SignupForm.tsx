@@ -23,6 +23,7 @@ const SignupForm = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
+  const [referer, setReferer] = useState<string>('/');
 
   const toggleVisibility = () => setIsVisible(!isVisible);
 
@@ -55,7 +56,7 @@ const SignupForm = () => {
     resolver: zodResolver(schema),
   });
 
-  const handleReCaptchaVerify = useCallback(async () => {
+  const verifyRecaptcha = useCallback(async () => {
     if (!executeRecaptcha) {
       console.log('Execute recaptcha not yet available');
 
@@ -69,11 +70,11 @@ const SignupForm = () => {
     return token;
   }, [executeRecaptcha]);
 
-  const onSubmit: SubmitHandler<FormData> = useCallback(
+  const handleFormSubmit: SubmitHandler<FormData> = useCallback(
     async (data) => {
       try {
         setIsLoading(true);
-        await handleReCaptchaVerify();
+        await verifyRecaptcha();
 
         const response = await fetch('/api/auth/signup', {
           body: JSON.stringify(data),
@@ -86,7 +87,7 @@ const SignupForm = () => {
 
         if (response.ok) {
           await signIn('credentials', {
-            callbackUrl: '/',
+            callbackUrl: referer,
             email: data.email,
             password: data.password,
           });
@@ -101,12 +102,18 @@ const SignupForm = () => {
         setIsLoading(false);
       }
     },
-    [handleReCaptchaVerify, reset]
+    [verifyRecaptcha, reset]
   );
 
   useEffect(() => {
-    handleReCaptchaVerify();
-  }, [handleReCaptchaVerify]);
+    verifyRecaptcha();
+  }, [verifyRecaptcha]);
+
+  useEffect(() => {
+    if (document.referrer) {
+      setReferer(document.referrer);
+    }
+  }, []);
 
   return (
     <div className='flex flex-col gap-4'>
@@ -121,7 +128,7 @@ const SignupForm = () => {
       )}
       <Form
         className='max-w-64 gap-4'
-        onSubmit={handleSubmit(onSubmit)}
+        onSubmit={handleSubmit(handleFormSubmit)}
         validationBehavior='aria'
       >
         <Controller

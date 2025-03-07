@@ -1,8 +1,10 @@
+import { USER_FAVORITES_STORAGE_KEY, useAuth } from '@/features/auth';
 import Image from 'next/image';
 import NextLink from 'next/link';
 import { useTranslations } from 'next-intl';
-import { FC, useMemo } from 'react';
-import { LiaHeart } from 'react-icons/lia';
+import { FC, useCallback, useMemo } from 'react';
+import { LiaHeart, LiaHeartSolid } from 'react-icons/lia';
+import { useLocalStorage } from 'usehooks-ts';
 
 import { ProductListingData } from '../model';
 import { productGetDiscountRate } from '../utils';
@@ -16,11 +18,30 @@ interface ProductCardProps {
 
 const ProductCard: FC<ProductCardProps> = ({ product }) => {
   const t = useTranslations('Product');
+  const { openAuthModal, user } = useAuth();
+  const [userFavorites, setUserFavorites] = useLocalStorage<string[]>(
+    USER_FAVORITES_STORAGE_KEY,
+    []
+  );
 
   const discountRate = useMemo(
     () => productGetDiscountRate(product.price, product.salePrice),
     [product.price, product.salePrice]
   );
+
+  const toggleFavorite = useCallback(() => {
+    if (!user) {
+      return openAuthModal();
+    }
+
+    setUserFavorites((prevFavorites) => {
+      if (prevFavorites.includes(product.id)) {
+        return prevFavorites.filter((id) => id !== product.id);
+      }
+
+      return [...prevFavorites, product.id];
+    });
+  }, [user, setUserFavorites, product.id]);
 
   return (
     <article
@@ -40,8 +61,13 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
         <button
           className='absolute right-0 top-0 z-[1] flex size-12 items-center justify-center'
           data-testid='product-card-favorite'
+          onClick={toggleFavorite}
         >
-          <LiaHeart size={20} />
+          {!!user && userFavorites.includes(product.id) ? (
+            <LiaHeartSolid className='text-red-500' size={20} />
+          ) : (
+            <LiaHeart size={20} />
+          )}
         </button>
         <picture>
           <Image
@@ -81,7 +107,7 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
         {product.outOfStock ? (
           <p className='text-xs'>{t('outOfStock')}</p>
         ) : (
-          !!product.variants.colors.length && (
+          product.variants.colors.length > 1 && (
             <ul className='flex gap-1 py-1' data-testid='product-card-colors'>
               {product.variants.colors.map((color, index) => (
                 <li className='flex' key={index}>

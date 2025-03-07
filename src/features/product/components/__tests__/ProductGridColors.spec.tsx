@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 
 import { Product } from '../../model';
 import { ProductGridColors } from '../ProductGridColors';
@@ -33,45 +33,15 @@ const mockColors: Product['variants']['colors'] = [
 ];
 
 describe('ProductGridColors', () => {
-  const onSelectColorMock = jest.fn();
-
   it('renders color selector and selected color', () => {
-    render(
-      <ProductGridColors
-        colors={mockColors}
-        onSelectColor={onSelectColorMock}
-        selectedColorId='1'
-      />
-    );
+    render(<ProductGridColors colors={mockColors} selectedColorId='1' />);
 
     expect(screen.getByText('variants.color')).toBeInTheDocument();
     expect(screen.getByText('Red')).toBeInTheDocument();
   });
 
-  it('calls onSelectColor with the correct id when a color is clicked', () => {
-    render(
-      <ProductGridColors
-        colors={mockColors}
-        onSelectColor={onSelectColorMock}
-        selectedColorId='1'
-      />
-    );
-
-    const blueColor = screen.getByTitle('Blue');
-
-    fireEvent.click(blueColor);
-
-    expect(onSelectColorMock).toHaveBeenCalledWith('2');
-  });
-
   it('applies correct styles for selected color', () => {
-    render(
-      <ProductGridColors
-        colors={mockColors}
-        onSelectColor={onSelectColorMock}
-        selectedColorId='1'
-      />
-    );
+    render(<ProductGridColors colors={mockColors} selectedColorId='1' />);
 
     const redColor = screen.getByTitle('Red');
 
@@ -79,13 +49,7 @@ describe('ProductGridColors', () => {
   });
 
   it('renders color images correctly', () => {
-    render(
-      <ProductGridColors
-        colors={mockColors}
-        onSelectColor={onSelectColorMock}
-        selectedColorId='1'
-      />
-    );
+    render(<ProductGridColors colors={mockColors} selectedColorId='1' />);
 
     const redImage = screen.getByAltText('Red Color');
     const blueImage = screen.getByAltText('Blue Color');
