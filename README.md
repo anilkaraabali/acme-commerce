@@ -1,12 +1,12 @@
-# Acme Store
+# Acme Commerce
 
-Acme Store is a modern, fully-featured e-commerce web application built with the latest web technologies. It provides users with an intuitive shopping experience, offering product browsing, cart management, and a seamless checkout process.
+Acme Commerce is a modern, fully-featured e-commerce web application built with the latest web technologies. It provides users with an intuitive shopping experience, offering product browsing, reviews, and a seamless auth process.
 
 ## Demo
 
-Check out the live demo of Acme Store!
+Check out the live demo of Acme Commerce!
 
-[Demo](https://acme-store-sage.vercel.app/)
+[Demo](https://acme-commerce-beta.vercel.app/)
 
 Feel free to explore and interact with the store's features.
 
@@ -15,12 +15,53 @@ Feel free to explore and interact with the store's features.
 To get started with this project, clone the repository and install the dependencies:
 
 ```bash
-git clone https://github.com/anilkaraabali/acme-store.git
-cd acme-store
+git clone https://github.com/anilkaraabali/acme-commerce.git
+cd acme-commerce
+```
+
+### Check if PNPM is Installed
+
+Before installing dependencies, make sure that **pnpm** is installed. You can check this by running:
+
+```bash
+pnpm --version
+```
+
+If **pnpm** is not installed, you can install it globally by running:
+
+```bash
+npm install -g pnpm
+```
+
+Then, install the project dependencies:
+
+```bash
 pnpm install
 ```
 
-Then, start the development server:
+### Start the development server
+
+Now, you can start the development server:
+
+```bash
+pnpm dev
+```
+
+#### Permissions Issue (If Occurs After Running pnpm dev)
+
+If you encounter the following error during the development server startup:
+
+```bash
+sh: ./scripts/merge-products/run.sh: Permission denied
+```
+
+You can resolve it by changing the permissions of the script to make it executable:
+
+```bash
+chmod +x ./scripts/merge-products/run.sh
+```
+
+Then, re-run the development server:
 
 ```bash
 pnpm dev
@@ -67,3 +108,13 @@ pnpm validate-types
 ```
 
 This will use the TypeScript compiler to validate your types and show any errors or warnings related to type issues in your code.
+
+## Storybook
+
+To start Storybook for viewing UI components, run the following command:
+
+```bash
+pnpm storybook
+```
+
+This will start Storybook, allowing you to interact with the components in isolation.
