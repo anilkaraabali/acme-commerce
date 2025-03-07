@@ -9,6 +9,7 @@ const productDetailMapper = (
   return {
     product: {
       careInstructions: data.product.care_instructions,
+      colorId: data.product.color_id,
       description: data.product.description,
       estimatedDeliveryDate: data.product.estimated_delivery_date,
       id: data.product.id,

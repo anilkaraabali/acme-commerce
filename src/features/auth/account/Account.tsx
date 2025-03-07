@@ -3,7 +3,7 @@ import NextLink from 'next/link';
 import { signOut } from 'next-auth/react';
 import { AbstractIntlMessages, useTranslations } from 'next-intl';
 
-import { useAuth } from '../Context';
+import { useAuth } from '../Provider';
 
 interface AccountProps {
   messages: AbstractIntlMessages;

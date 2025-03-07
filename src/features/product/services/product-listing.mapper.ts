@@ -14,9 +14,11 @@ const productListingMapper = (
           url: color.url,
           value: color.value,
         }));
-        const outOfStock = product.variants.colors.every((color) =>
-          color.sizes.every((size) => size.quantity === 0)
-        );
+
+        const outOfStock =
+          product.variants.colors
+            .find((color) => color.id === product.color_id)
+            ?.sizes.every((size) => size.quantity === 0) ?? false;
 
         return {
           colors,

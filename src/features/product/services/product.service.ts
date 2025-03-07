@@ -32,10 +32,10 @@ class ProductService {
     });
   }
 
-  async fetchProducts(args: FetcherArgs = {}) {
+  async fetchProducts(url: string, args?: FetcherArgs) {
     return await apiFetcher<ProductListingResponse, ProductListingData>({
       mapper: productListingMapper,
-      url: '/index',
+      url,
       ...args,
     });
   }

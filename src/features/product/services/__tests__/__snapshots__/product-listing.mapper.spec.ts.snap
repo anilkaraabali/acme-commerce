@@ -26,7 +26,7 @@ exports[`productListingMapper should map raw product listing response to the des
         },
         "limitedEdition": true,
         "newArrival": true,
-        "outOfStock": false,
+        "outOfStock": true,
         "price": {
           "currency": "£",
           "value": 44.99,

@@ -34,6 +34,7 @@ export default async function handler(
       password: hashedPassword,
       provider: 'credentials',
       providerId: email,
+      reviews: [],
     };
 
     users.push(newUser);

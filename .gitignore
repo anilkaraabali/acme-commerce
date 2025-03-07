@@ -39,6 +39,10 @@ next-env.d.ts
 
 # static
 /public/pdf.worker.js
+/public/api/v1/products/ladies/**
+/public/api/v1/products/men/**
+/public/api/v1/products/kids/**
+/public/api/v1/products/home/**
 
 # platform
 /iOS

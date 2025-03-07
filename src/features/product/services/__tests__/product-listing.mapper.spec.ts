@@ -24,6 +24,6 @@ describe('productListingMapper', () => {
 
     const result = productListingMapper(rawData);
 
-    expect(result.data.products[0].outOfStock).toBeFalsy();
+    expect(result.data.products[0].outOfStock).toBeTruthy();
   });
 });

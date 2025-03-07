@@ -47,7 +47,7 @@ describe('ProductService', () => {
     it('fetchProducts should call apiFetcher with correct parameters', async () => {
       (apiFetcher as jest.Mock).mockResolvedValue(productListingStub());
 
-      await productService.fetchProducts();
+      await productService.fetchProducts('/index');
 
       expect(apiFetcher).toHaveBeenCalledWith({
         mapper: expect.any(Function),
@@ -58,7 +58,9 @@ describe('ProductService', () => {
     it('fetchProducts should throw an error if apiFetcher fails', async () => {
       (apiFetcher as jest.Mock).mockRejectedValue(new Error('API Error'));
 
-      await expect(productService.fetchProducts()).rejects.toThrow('API Error');
+      await expect(productService.fetchProducts('/index')).rejects.toThrow(
+        'API Error'
+      );
     });
   });
 });

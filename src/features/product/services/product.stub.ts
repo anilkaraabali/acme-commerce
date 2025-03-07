@@ -5,9 +5,12 @@ const productResponseStub = (
 ): ProductResponse => ({
   care_instructions:
     '<p>Machine wash at 30°. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam.</p>',
+  category: 'dresses',
+  color_id: '1002',
   description:
     '<p>Acme Store Limited Edition • New Arrival</p><br/><p>Long dress in crêpe chiffon with a deep V-neckline and an unlined yoke and batwing sleeves detailed with covered elastication for a ruched effect. Loose fit with a narrow drawstring at the waist with dice-shaped metal beads. Viscose lining.</p>',
   estimated_delivery_date: '2025-03-24T14:30:45.123Z',
+  gender: 'ladies',
   id: '1263361002',
   images: [
     {
