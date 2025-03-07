@@ -16,7 +16,7 @@ import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import NextLink from 'next/link';
 import { useTranslations } from 'next-intl';
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import {
   LiaBell,
   LiaCartPlusSolid,
@@ -55,41 +55,28 @@ function ProductDetail(props: ProductDetailProps) {
     []
   );
 
+  // TODO: Implement gallery modal
+  const [, setGalleryImageIndex] = useState(0);
+  const [isShareClicked, setIsShareClicked] = useState(false);
+
   const product = props.detailResult.product;
 
-  // TODO[AC-1]: Implement gallery modal
-  const [, setGalleryImageIndex] = useState(0);
-  const [selectedColorId, setSelectedColorId] = useState(
-    product.variants.colors[0].id
-  );
+  const { activeColorVariant, isOutOfStock } = useMemo(() => {
+    const variant = product.variants.colors.find(
+      (color) => color.id === product.colorId
+    )!;
+    const outOfStock = variant.sizes.every((size) => size.quantity === 0);
+
+    return { activeColorVariant: variant, isOutOfStock: outOfStock };
+  }, [product.colorId, product.variants.colors]);
+
   const [selectedSizeId, setSelectedSizeId] = useState(
-    product.variants.colors[0].sizes.find((size) => size.quantity > 0)?.id || ''
+    activeColorVariant.sizes.find((size) => size.quantity > 0)?.id || ''
   );
-  const [isShareClicked, setIsShareClicked] = useState(false);
 
   const discountRate = useMemo(
     () => productGetDiscountRate(product.price, product.salePrice),
     [product.price, product.salePrice]
-  );
-  const isOutOfStock = useMemo(
-    () =>
-      product.variants.colors
-        .find((color) => color.id === selectedColorId)!
-        .sizes.every((size) => size.quantity === 0),
-    [product.variants.colors, selectedColorId]
-  );
-
-  const selectColor = useCallback(
-    (id: string) => {
-      setSelectedColorId(id);
-      // Select the first available size of the selected color
-      setSelectedSizeId(
-        product.variants.colors
-          .find((color) => color.id === id)!
-          .sizes.find((size) => size.quantity > 0)!.id
-      );
-    },
-    [product.variants.colors]
   );
 
   const shareProduct = () => {
@@ -117,22 +104,22 @@ function ProductDetail(props: ProductDetailProps) {
       return openAuthModal();
     }
 
-    if (userFavorites.includes(product.id)) {
-      setUserFavorites(userFavorites.filter((id) => id !== product.id));
-    } else {
-      setUserFavorites([...userFavorites, product.id]);
-    }
-  }, [product.id, user, userFavorites]);
+    setUserFavorites((prevFavorites) => {
+      if (prevFavorites.includes(product.id)) {
+        return prevFavorites.filter((id) => id !== product.id);
+      }
+
+      return [...prevFavorites, product.id];
+    });
+  }, [user, setUserFavorites, product.id]);
 
   const addToCart = useCallback(() => {
-    if (!user) {
+    if (isOutOfStock && !user) {
       return openAuthModal();
     }
 
-    const selectedColor = product.variants.colors.find(
-      (color) => color.id === selectedColorId
-    )!;
-    const selectedSize = selectedColor.sizes.find(
+    const selectedColorVariant = activeColorVariant;
+    const selectedSize = selectedColorVariant.sizes.find(
       (size) => size.id === selectedSizeId
     )!;
 
@@ -140,7 +127,8 @@ function ProductDetail(props: ProductDetailProps) {
       `🚧 Hold on, the cart's still under construction! 🛠️\n\n` +
         `${JSON.stringify(
           {
-            color: selectedColor.name,
+            color: selectedColorVariant.name,
+            colorId: selectedColorVariant.id,
             pid: product.id,
             size: selectedSize.name,
           },
@@ -148,7 +136,15 @@ function ProductDetail(props: ProductDetailProps) {
           2
         )}\n\n`
     );
-  }, [product.id, product.variants.colors, selectedColorId, selectedSizeId]);
+  }, [user, openAuthModal, activeColorVariant, selectedSizeId, product.id]);
+
+  useEffect(() => {
+    const sizeWithStock = activeColorVariant.sizes.find(
+      (size) => size.quantity > 0
+    );
+
+    setSelectedSizeId(sizeWithStock?.id || '');
+  }, [activeColorVariant]);
 
   return (
     <main>
@@ -212,17 +208,12 @@ function ProductDetail(props: ProductDetailProps) {
               </div>
               <ProductGridColors
                 colors={product.variants.colors}
-                onSelectColor={(id) => selectColor(id)}
-                selectedColorId={selectedColorId}
+                selectedColorId={product.colorId}
               />
               <ProductGridSizes
                 onSelectSize={setSelectedSizeId}
                 selectedSizeId={selectedSizeId}
-                sizes={
-                  product.variants.colors.find(
-                    (color) => color.id === selectedColorId
-                  )!.sizes
-                }
+                sizes={activeColorVariant.sizes}
               />
               <div className='mb-10 mt-2 flex gap-2'>
                 <Button
@@ -245,7 +236,7 @@ function ProductDetail(props: ProductDetailProps) {
                 </Button>
                 <ButtonGroup color='default' size='lg' variant='ghost'>
                   <Button isIconOnly onPress={toggleFavorite} radius='none'>
-                    {userFavorites.includes(product.id) ? (
+                    {!!user && userFavorites.includes(product.id) ? (
                       <LiaHeartSolid className='text-red-500' size={20} />
                     ) : (
                       <LiaHeart size={20} />

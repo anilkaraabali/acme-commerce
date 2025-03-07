@@ -2,7 +2,7 @@
 
 Acme Commerce is a modern, fully-featured e-commerce web application built with the latest web technologies. It provides users with an intuitive shopping experience, offering product browsing, reviews, and a seamless auth process.
 
-## Demo
+## Demo 🎥
 
 Check out the live demo of Acme Commerce!
 
@@ -10,7 +10,21 @@ Check out the live demo of Acme Commerce!
 
 Feel free to explore and interact with the store's features.
 
-## Getting Started
+## Tech-stack ⚡
+
+Acme Commerce is built with a modern stack to deliver a top-notch e-commerce experience:
+
+- React & Next.js ⚛️: Dynamic, server-side rendered UIs.
+- [Tailwind CSS](https://tailwindcss.com/) 🌈: Utility-first styling for fast development.
+- [Storybook](https://storybook.js.org/) 📖: Develop and test UI components in isolation.
+- [NextAuth.js](https://next-auth.js.org/) 🔒: Secure authentication and user management.
+- [Jest](https://jestjs.io/) & [React Testing Library](https://testing-library.com/) 🧪: For reliable testing and bug-free code.
+- TypeScript 💻: Type safety for smoother development.
+- [HeroUI](https://www.heroui.com/) 🎨: A design system for consistent UI components.
+- [Next-Intl](https://next-intl.dev/) 🌍: For internationalization and localization support.
+- [React Hook Form](https://react-hook-form.com/) 📝: For easy and performant form handling.
+
+## Getting Started ⚙️
 
 To get started with this project, clone the repository and install the dependencies:
 
@@ -19,7 +33,7 @@ git clone https://github.com/anilkaraabali/acme-commerce.git
 cd acme-commerce
 ```
 
-### Check if PNPM is Installed
+### Check if PNPM is Installed 🔍
 
 Before installing dependencies, make sure that **pnpm** is installed. You can check this by running:
 
@@ -39,7 +53,7 @@ Then, install the project dependencies:
 pnpm install
 ```
 
-### Start the development server
+### Start the development server 🚀
 
 Now, you can start the development server:
 
@@ -47,7 +61,7 @@ Now, you can start the development server:
 pnpm dev
 ```
 
-#### Permissions Issue (If Occurs After Running pnpm dev)
+#### Permissions Issue (If Occurs After Running pnpm dev) ⚠️
 
 If you encounter the following error during the development server startup:
 
@@ -67,7 +81,7 @@ Then, re-run the development server:
 pnpm dev
 ```
 
-## Running Tests
+## Running Tests 🧪
 
 This project uses Jest for running unit and integration tests.
 
@@ -79,7 +93,7 @@ pnpm test
 
 This will run all the tests in the project and output the results in the terminal.
 
-### Running Tests in Watch Mode
+### Running Tests in Watch Mode 👀
 
 If you want to run the tests continuously as you make changes, you can use the following command:
 
@@ -89,7 +103,7 @@ pnpm test:watch
 
 This will watch for changes to your test files and automatically rerun the tests.
 
-### Running Tests with Coverage
+### Running Tests with Coverage 📊
 
 To run the tests with coverage reports, use:
 
@@ -99,7 +113,7 @@ pnpm test:coverage
 
 This will generate a code coverage report that shows how much of your code is covered by tests.
 
-## TypeScript Validation
+## TypeScript Validation 🛠️
 
 To check for TypeScript errors in your project, you can run:
 
@@ -109,7 +123,7 @@ pnpm validate-types
 
 This will use the TypeScript compiler to validate your types and show any errors or warnings related to type issues in your code.
 
-## Storybook
+## Storybook 📚
 
 To start Storybook for viewing UI components, run the following command:
 

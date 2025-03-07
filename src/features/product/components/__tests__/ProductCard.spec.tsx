@@ -1,8 +1,20 @@
-import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { useAuth } from '@/features/auth';
+import { fireEvent, render, screen } from '@testing-library/react';
+import { useLocalStorage } from 'usehooks-ts';
 
 import { ProductListingData } from '../../model';
 import { ProductCard } from '../ProductCard';
+
+jest.mock('@/features/auth', () => ({
+  useAuth: jest.fn(() => ({
+    openAuthModal: jest.fn(),
+    user: null,
+  })),
+}));
+
+jest.mock('usehooks-ts', () => ({
+  useLocalStorage: jest.fn(() => [[], jest.fn()]),
+}));
 
 const mockProduct: ProductListingData['data']['products'][0] = {
   id: '123',
@@ -66,14 +78,44 @@ describe('ProductCard', () => {
     expect(screen.getAllByRole('link', { name: /red|blue/i })).toHaveLength(2);
   });
 
-  it('renders wishlist button and allows interaction', async () => {
+  it('opens auth modal when user clicks favorite button and is not logged in', () => {
+    const openAuthModalMock = jest.fn();
+
+    (useAuth as jest.Mock).mockReturnValue({
+      openAuthModal: openAuthModalMock,
+      user: null,
+    });
+
     render(<ProductCard index={0} product={mockProduct} />);
 
-    const wishlistButton = screen.getByRole('button');
+    const favoriteButton = screen.getByTestId('product-card-favorite');
 
-    expect(wishlistButton).toBeInTheDocument();
+    fireEvent.click(favoriteButton);
 
-    await userEvent.click(wishlistButton);
-    // Add expectations if clicking should trigger an effect
+    expect(openAuthModalMock).toHaveBeenCalledTimes(1);
+  });
+
+  test('toggles favorite button when user is logged in', () => {
+    const setUserFavoritesMock = jest.fn();
+
+    (useAuth as jest.Mock).mockReturnValue({
+      openAuthModal: jest.fn(),
+      user: { id: 'user123' },
+    });
+    (useLocalStorage as jest.Mock).mockReturnValue([[], setUserFavoritesMock]);
+
+    render(<ProductCard index={0} product={mockProduct} />);
+
+    const favoriteButton = screen.getByTestId('product-card-favorite');
+
+    fireEvent.click(favoriteButton);
+
+    expect(setUserFavoritesMock).toHaveBeenCalled();
+
+    fireEvent.click(favoriteButton);
+
+    expect(setUserFavoritesMock).toHaveBeenCalledWith(
+      expect.not.arrayContaining([mockProduct.id])
+    );
   });
 });

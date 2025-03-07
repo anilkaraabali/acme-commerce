@@ -17,7 +17,7 @@ import { Button } from '@heroui/react';
 import NextLink from 'next/link';
 import { useTranslations } from 'next-intl';
 import { useState } from 'react';
-import { LiaArrowRightSolid } from 'react-icons/lia';
+import { LiaHeart, LiaShoppingCartSolid, LiaUserSolid } from 'react-icons/lia';
 
 const Header = () => {
   const t = useTranslations();
@@ -53,15 +53,24 @@ const Header = () => {
         {user?.name ? (
           <UserAvatar name={user.name} />
         ) : (
-          <Button
-            as={NextLink}
-            color='primary'
-            endContent={<LiaArrowRightSolid size={20} />}
-            href='/auth/signin'
-            variant='shadow'
-          >
-            {t('Common.cta.signIn')}
-          </Button>
+          <>
+            <Button
+              as={NextLink}
+              href='/auth/signin'
+              isIconOnly
+              variant='light'
+            >
+              <LiaUserSolid size={20} />
+            </Button>
+            {/* TODO: Implement favourites pages */}
+            <Button as={NextLink} href='/favourites' isIconOnly variant='light'>
+              <LiaHeart size={20} />
+            </Button>
+            {/* TODO: Implement cart pages */}
+            <Button as={NextLink} href='/cart' isIconOnly variant='light'>
+              <LiaShoppingCartSolid size={20} />
+            </Button>
+          </>
         )}
       </NavbarContent>
       <NavbarMenu>

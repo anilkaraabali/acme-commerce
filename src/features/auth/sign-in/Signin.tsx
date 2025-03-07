@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { signIn } from 'next-auth/react';
 import { AbstractIntlMessages, useTranslations } from 'next-intl';
 import LoginSVG from 'public/icons/auth/login.svg';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { LiaEyeSlash, LiaEyeSolid } from 'react-icons/lia';
 import { ZodType, z } from 'zod';
@@ -29,6 +29,7 @@ function Signin() {
   const [email, setEmail] = useState('');
   const [step, setStep] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
+  const [referer, setReferer] = useState<string>('/');
 
   const schema: ZodType<FormData> = z.object({
     password: z
@@ -48,14 +49,14 @@ function Signin() {
     resolver: zodResolver(schema),
   });
 
-  const toggleVisibility = () => setIsVisible(!isVisible);
+  const togglePasswordVisibility = () => setIsVisible(!isVisible);
 
-  const onSubmit: SubmitHandler<FormData> = async (data) => {
+  const handleFormSubmit: SubmitHandler<FormData> = async (data) => {
     try {
       setIsLoading(true);
 
       await signIn('credentials', {
-        callbackUrl: '/',
+        callbackUrl: referer,
         email,
         password: data.password,
       });
@@ -67,6 +68,12 @@ function Signin() {
       setIsLoading(false);
     }
   };
+
+  useEffect(() => {
+    if (document.referrer) {
+      setReferer(document.referrer);
+    }
+  }, []);
 
   return (
     <div className='flex h-screen w-screen flex-col px-5 pb-4'>
@@ -128,7 +135,7 @@ function Signin() {
                   ) : (
                     <Form
                       className='gap-4'
-                      onSubmit={handleSubmit(onSubmit)}
+                      onSubmit={handleSubmit(handleFormSubmit)}
                       validationBehavior='aria'
                     >
                       <Controller
@@ -144,7 +151,7 @@ function Signin() {
                               <button
                                 aria-label='toggle password visibility'
                                 className='focus:outline-none'
-                                onClick={toggleVisibility}
+                                onClick={togglePasswordVisibility}
                                 type='button'
                               >
                                 {isVisible ? (

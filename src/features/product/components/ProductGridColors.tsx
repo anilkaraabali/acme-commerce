@@ -8,13 +8,11 @@ import { Product } from '../model';
 
 interface ProductGridColorsProps {
   colors: Product['variants']['colors'];
-  onSelectColor: (id: string) => void;
   selectedColorId: string;
 }
 
 const ProductGridColors: FC<ProductGridColorsProps> = ({
   colors,
-  onSelectColor,
   selectedColorId,
 }) => {
   const t = useTranslations('Product');
@@ -43,7 +41,6 @@ const ProductGridColors: FC<ProductGridColorsProps> = ({
               )}
               data-testid='product-color'
               href={color.url}
-              onClick={() => onSelectColor(color.id)}
               title={color.name}
             >
               {selectedColor.id === color.id && isOutOfStock && (
