@@ -1,5 +1,3 @@
-declare module 'jest-next-dynamic';
-
 import en from './messages/en.json';
 
 type Messages = typeof en;
