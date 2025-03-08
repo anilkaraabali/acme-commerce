@@ -90,7 +90,7 @@ const SignupForm: FC<SignupFormProps> = ({ referer }) => {
 
         if (response.ok) {
           await signIn('credentials', {
-            callbackUrl: referer,
+            callbackUrl: referer.includes('signin') ? '/' : referer,
             email: data.email,
             password: data.password,
           });
@@ -107,6 +107,8 @@ const SignupForm: FC<SignupFormProps> = ({ referer }) => {
     },
     [verifyRecaptcha, reset]
   );
+
+  console.log('errors:', errors);
 
   return (
     <div className='flex flex-col gap-4'>
@@ -198,6 +200,7 @@ const SignupForm: FC<SignupFormProps> = ({ referer }) => {
           render={({ field }) => (
             <Checkbox
               {...field}
+              isInvalid={!!errors.terms}
               name='terms'
               size='sm'
               value={field.value.toString()}

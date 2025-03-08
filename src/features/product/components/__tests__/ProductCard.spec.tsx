@@ -2,7 +2,7 @@ import { useAuth } from '@/features/auth';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { useLocalStorage } from 'usehooks-ts';
 
-import { ProductListingData } from '../../model';
+import { ProductListingData } from '../../types';
 import { ProductCard } from '../ProductCard';
 
 jest.mock('@/features/auth', () => ({

@@ -1,4 +1,4 @@
-import { ProductDetailData } from '../model';
+import { ProductDetailData } from '../types';
 import { ProductDetailResponse } from './product-detail.types';
 
 const productDetailMapper = (

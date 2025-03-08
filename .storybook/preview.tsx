@@ -2,11 +2,13 @@ import type { Preview } from '@storybook/react';
 
 import '@/styles/globals.css';
 import { HeroUIProvider, ToastProvider } from '@heroui/react';
+import { SessionProvider } from 'next-auth/react';
 import { NextIntlClientProvider } from 'next-intl';
 import React from 'react';
 
 import enMessages from '../messages/en.json';
 import { fontSans } from '../src/config';
+import { AuthProvider } from '../src/features/auth';
 import './styles.css';
 import theme from './theme';
 
@@ -22,10 +24,14 @@ const preview: Preview = {
             messages={enMessages}
             timeZone='Europe/Istanbul'
           >
-            <div className={fontSans.className}>
-              <ToastProvider />
-              <Story />
-            </div>
+            <SessionProvider>
+              <div className={fontSans.className}>
+                <AuthProvider>
+                  <ToastProvider />
+                  <Story />
+                </AuthProvider>
+              </div>
+            </SessionProvider>
           </NextIntlClientProvider>
         </HeroUIProvider>
       );

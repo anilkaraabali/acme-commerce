@@ -1,6 +1,6 @@
 import { apiFetcher } from '@/services/api-fetcher';
 
-import { ProductDetailData, ProductListingData } from '../model';
+import { ProductDetailData, ProductListingData } from '../types';
 import { productDetailMapper } from './product-detail.mapper';
 import { ProductDetailResponse } from './product-detail.types';
 import { productListingMapper } from './product-listing.mapper';

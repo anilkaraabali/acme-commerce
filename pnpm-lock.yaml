@@ -84,6 +84,9 @@ importers:
         specifier: ^3.24.1
         version: 3.24.1
     devDependencies:
+      '@storybook/addon-actions':
+        specifier: ^8.6.4
+        version: 8.6.4(storybook@8.6.4(bufferutil@4.0.9)(prettier@3.3.3))
       '@storybook/addon-essentials':
         specifier: ^8.2.8
         version: 8.6.4(@types/react@18.0.28)(storybook@8.6.4(bufferutil@4.0.9)(prettier@3.3.3))

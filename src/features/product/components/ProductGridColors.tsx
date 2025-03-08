@@ -4,7 +4,7 @@ import NextLink from 'next/link';
 import { useTranslations } from 'next-intl';
 import { FC } from 'react';
 
-import { Product } from '../model';
+import { Product } from '../types';
 
 interface ProductGridColorsProps {
   colors: Product['variants']['colors'];

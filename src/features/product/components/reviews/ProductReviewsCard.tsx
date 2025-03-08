@@ -3,15 +3,15 @@ import { useTranslations } from 'next-intl';
 import { FC, useState } from 'react';
 import ReactStars from 'react-stars';
 
-import { Review } from './types';
+import { ProductReview } from '../../types';
 
-interface ReviewsCardProps {
+interface ProductReviewsCardProps {
   disableToggle?: boolean;
   maxLength?: number;
-  review: Review;
+  review: ProductReview;
 }
 
-const ReviewsCard: FC<ReviewsCardProps> = ({
+const ProductReviewsCard: FC<ProductReviewsCardProps> = ({
   disableToggle = false,
   maxLength = 128,
   review,
@@ -37,13 +37,7 @@ const ReviewsCard: FC<ReviewsCardProps> = ({
   return (
     <div className='flex flex-col items-start gap-4' data-testid='reviews-card'>
       <div className='flex w-full items-center justify-between gap-3'>
-        <ReactStars
-          color1='#000'
-          count={5}
-          edit={false}
-          size={16}
-          value={review.rating}
-        />
+        <ReactStars edit={false} value={review.rating} />
         <p className='text-sm'>
           {dayjs(review.createdAt).format('DD MMM YYYY')}
         </p>
@@ -62,4 +56,4 @@ const ReviewsCard: FC<ReviewsCardProps> = ({
   );
 };
 
-export { ReviewsCard };
+export { ProductReviewsCard };

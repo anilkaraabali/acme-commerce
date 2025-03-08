@@ -1,4 +1,4 @@
-import { ProductListingData } from '../model';
+import { ProductListingData } from '../types';
 import { ProductListingResponse } from './product-listing.types';
 
 const productListingMapper = (

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { ProductPrice } from './ProductPrice';
+import { ProductPrice } from '../components';
 
 const meta: Meta<typeof ProductPrice> = {
   component: ProductPrice,

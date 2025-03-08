@@ -26,7 +26,7 @@ describe('ProductDiscountBadge', () => {
   });
 
   it('applies custom classNames when provided', () => {
-    const customClassNames = { base: 'custom-class' };
+    const customClassNames = { badge: 'badge-class', base: 'base-class' };
 
     render(
       <ProductDiscountBadge classNames={customClassNames} discountRate='20%' />
@@ -34,6 +34,6 @@ describe('ProductDiscountBadge', () => {
 
     const badgeElement = screen.getByTestId('product-discount');
 
-    expect(badgeElement).toHaveClass('custom-class');
+    expect(badgeElement).toHaveClass('badge-class');
   });
 });

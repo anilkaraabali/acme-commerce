@@ -1,0 +1,3 @@
+const PRODUCT_REVIEWS_STORAGE_KEY = 'productReviews';
+
+export { PRODUCT_REVIEWS_STORAGE_KEY };

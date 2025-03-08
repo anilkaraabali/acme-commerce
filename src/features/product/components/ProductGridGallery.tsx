@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import Image from 'next/image';
 import { FC } from 'react';
 
-import { Product } from '../model';
+import { Product } from '../types';
 
 interface ProductGridGalleryProps {
   classNames?: {

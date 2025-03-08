@@ -1,7 +1,7 @@
 import { LayoutProps } from '@/types';
 
 import { ProductCard } from '../components';
-import { ProductListingData } from '../model';
+import { ProductListingData } from '../types';
 
 interface ProductListProps extends LayoutProps {
   searchResult: ProductListingData;
