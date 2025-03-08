@@ -3,7 +3,7 @@ import { Alert, Button, Checkbox, Form, Input } from '@heroui/react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { signIn } from 'next-auth/react';
 import { useTranslations } from 'next-intl';
-import { useCallback, useEffect, useState } from 'react';
+import { FC, useCallback, useState } from 'react';
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { LiaEyeSlash, LiaEyeSolid } from 'react-icons/lia';
@@ -16,14 +16,17 @@ type FormData = {
   terms: boolean;
 };
 
-const SignupForm = () => {
+interface SignupFormProps {
+  referer: string;
+}
+
+const SignupForm: FC<SignupFormProps> = ({ referer }) => {
   const t = useTranslations();
   const { executeRecaptcha } = useGoogleReCaptcha();
 
   const [isLoading, setIsLoading] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
-  const [referer, setReferer] = useState<string>('/');
 
   const toggleVisibility = () => setIsVisible(!isVisible);
 
@@ -104,16 +107,6 @@ const SignupForm = () => {
     },
     [verifyRecaptcha, reset]
   );
-
-  useEffect(() => {
-    verifyRecaptcha();
-  }, [verifyRecaptcha]);
-
-  useEffect(() => {
-    if (document.referrer) {
-      setReferer(document.referrer);
-    }
-  }, []);
 
   return (
     <div className='flex flex-col gap-4'>
@@ -236,4 +229,5 @@ const SignupForm = () => {
   );
 };
 
+export type { SignupFormProps };
 export { SignupForm };

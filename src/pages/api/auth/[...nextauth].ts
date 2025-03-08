@@ -18,10 +18,11 @@ import CredentialsProvider from 'next-auth/providers/credentials';
 
 const authOptions = {
   callbacks: {
-    async jwt({ account, profile, token }) {
-      if (account && profile) {
-        token.provider = account.provider;
-        token.providerId = account.providerAccountId;
+    async jwt({ token, user }) {
+      if (user) {
+        token.provider = user.provider;
+        token.providerId = user.providerId;
+        token.id = user.id;
       }
 
       return token;
@@ -31,6 +32,8 @@ const authOptions = {
         session.user.provider = token.provider || null;
         session.user.providerId = token.providerId || null;
         session.user.image = session.user.image || null;
+        session.user.id = token.id;
+        session.user.reviews = session.user.reviews || [];
       }
 
       return session;

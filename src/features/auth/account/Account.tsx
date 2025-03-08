@@ -1,9 +1,8 @@
 import { Button } from '@heroui/react';
-import NextLink from 'next/link';
 import { signOut } from 'next-auth/react';
 import { AbstractIntlMessages, useTranslations } from 'next-intl';
 
-import { useAuth } from '../Provider';
+import { useAuth } from '../AuthProvider';
 
 interface AccountProps {
   messages: AbstractIntlMessages;
@@ -18,10 +17,12 @@ function Account() {
       <div className='container flex flex-col items-start gap-4'>
         <h1>{t('account.welcome.title', { name: user?.name })}</h1>
         <Button
-          as={NextLink}
           color='danger'
-          href='/'
-          onPress={() => signOut()}
+          onPress={() =>
+            signOut({
+              callbackUrl: '/',
+            })
+          }
           variant='flat'
         >
           {t('signOut.cta')}

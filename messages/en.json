@@ -26,9 +26,9 @@
         "google": "Continue with Google",
         "facebook": "Continue with Facebook",
         "email": "Continue with Email",
-        "submit": "Sign into Acme Store"
+        "submit": "Sign into Acme"
       },
-      "emailNotLinked": "It seems that the email you entered isn’t linked to any Acme Store account. Please check your email again or <signUpLink>sign up</signUpLink> for a new account."
+      "emailNotLinked": "It seems that the email you entered isn’t linked to any Acme account. Please check your email again or <signUpLink>sign up</signUpLink> for a new account."
     },
     "signUp": {
       "title": "Sign up<br>and come on in",
@@ -152,9 +152,38 @@
       "label": "Reviews [{count}]",
       "title": "Reviews",
       "cta": "Write a review",
-      "noReviews": "No reviews yet",
+      "noReviews": {
+        "title": "No reviews yet",
+        "description": "Be the first to share your thoughts! Your feedback helps others make informed decisions.",
+        "cta": "Write a review"
+      },
+      "form": {
+        "title": "Write a review",
+        "description": "Your feedback helps others make informed decisions.",
+        "rating": {
+          "label": "Rating",
+          "placeholder": "Select a rating",
+          "required": "This field cannot be left blank"
+        },
+        "comment": {
+          "label": "Comment",
+          "placeholder": "Write your review here",
+          "required": "This field cannot be left blank"
+        },
+        "submit": "Submit",
+        "cancel": "Cancel",
+        "required": "This field cannot be left blank",
+        "success": {
+          "title": "Thank you for your review!",
+          "description": "Your review will be published after moderation."
+        }
+      },
       "basedOnReviews": "Based on {count} customer reviews",
-      "legal": "Terms & Conditions Customer Rate & Review"
+      "legal": "Terms & Conditions Customer Rate & Review",
+      "addComment": {
+        "cta": "Add Your Comment",
+        "description": "Share your experience with others and help them make better decisions."
+      }
     }
   },
   "Footer": {
@@ -164,9 +193,9 @@
     "kids": "Kids",
     "home": "Home",
     "corpareteInfo": "Corparete Info",
-    "careers": "Career at Acme Store",
-    "about": "About Acme Store Group",
-    "sustainability": "Sustainability H&M group",
+    "careers": "Career at Acme",
+    "about": "About Acme",
+    "sustainability": "Sustainability Acme",
     "press": "Press",
     "help": "Help",
     "customerService": "Customer Service",
@@ -176,17 +205,17 @@
     "termsOfService": "Terms of service",
     "privacyPolicy": "Privacy policy",
     "license": "License",
-    "copyright": "© 2025 Acme Store, Inc. All rights reserved.",
+    "copyright": "© 2025 Acme, Inc. All rights reserved.",
     "tagline": "Your one-stop destination for fashion, home essentials, beauty products, kids."
   },
   "Home": {
     "hero": {
-      "title": "Acme Store | Online Fashion, Homeware & Kids Clothes",
+      "title": "Acme | Online Fashion, Homeware & Kids Clothes",
       "shopNow": "Shop now"
     }
   },
   "Product": {
-    "limitedEdition": "ACME STORE LIMITED EDITION",
+    "limitedEdition": "ACME LIMITED EDITION",
     "newArrival": "New Arrival",
     "outOfStock": "Out of stock",
     "arrivalDate": "Get it {date}",
@@ -205,7 +234,7 @@
       "materials": "Materials",
       "careGuide": "Care instructions",
       "shipping": "Shipping & Returns",
-      "shippingInfo": "<p>Free standard delivery for members when spending £30 or more. Pick up in Acme Store free for all. Free and flexible returns for members.</p><br/><p>We accept card payments via MasterCard and Visa. You can also pay by Klarna, PayPal, Apple Pay or use your Acme giftcard.</p><br/><p>For external brands, a shipping fee might be applied. The shipping cost for each parcel will be shown at checkout. Find out more on our customer service pages.</p>",
+      "shippingInfo": "<p>Free standard delivery for members when spending £30 or more. Pick up in Acme free for all. Free and flexible returns for members.</p><br/><p>We accept card payments via MasterCard and Visa. You can also pay by Klarna, PayPal, Apple Pay or use your Acme giftcard.</p><br/><p>For external brands, a shipping fee might be applied. The shipping cost for each parcel will be shown at checkout. Find out more on our customer service pages.</p>",
       "reviews": "Reviews"
     },
     "share": {

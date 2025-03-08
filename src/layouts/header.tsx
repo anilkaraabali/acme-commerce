@@ -1,7 +1,6 @@
 import { Logo } from '@/components/logo';
 import { siteConfig } from '@/config';
 import { useAuth } from '@/features/auth';
-import { UserAvatar } from '@/features/auth/user/Avatar';
 import { DynamicTranslationKey } from '@/types';
 import { Link } from '@heroui/link';
 import {
@@ -50,28 +49,22 @@ const Header = () => {
         ))}
       </NavbarContent>
       <NavbarContent justify='end'>
-        {user?.name ? (
-          <UserAvatar name={user.name} />
-        ) : (
-          <>
-            <Button
-              as={NextLink}
-              href='/auth/signin'
-              isIconOnly
-              variant='light'
-            >
-              <LiaUserSolid size={20} />
-            </Button>
-            {/* TODO: Implement favourites pages */}
-            <Button as={NextLink} href='/favourites' isIconOnly variant='light'>
-              <LiaHeart size={20} />
-            </Button>
-            {/* TODO: Implement cart pages */}
-            <Button as={NextLink} href='/cart' isIconOnly variant='light'>
-              <LiaShoppingCartSolid size={20} />
-            </Button>
-          </>
-        )}
+        <Button
+          as={NextLink}
+          href={user ? '/account' : '/auth/signin'}
+          isIconOnly
+          variant='light'
+        >
+          <LiaUserSolid size={20} />
+        </Button>
+        {/* TODO: Implement favourites pages */}
+        <Button as={NextLink} href='/favourites' isIconOnly variant='light'>
+          <LiaHeart size={20} />
+        </Button>
+        {/* TODO: Implement cart pages */}
+        <Button as={NextLink} href='/cart' isIconOnly variant='light'>
+          <LiaShoppingCartSolid size={20} />
+        </Button>
       </NavbarContent>
       <NavbarMenu>
         <div className='mx-4 mt-2 flex flex-col gap-2'>

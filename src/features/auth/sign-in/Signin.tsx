@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { signIn } from 'next-auth/react';
 import { AbstractIntlMessages, useTranslations } from 'next-intl';
 import LoginSVG from 'public/icons/auth/login.svg';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { LiaEyeSlash, LiaEyeSolid } from 'react-icons/lia';
 import { ZodType, z } from 'zod';
@@ -20,16 +20,16 @@ type FormData = {
 
 interface SigninProps {
   messages: AbstractIntlMessages;
+  referer: string;
 }
 
-function Signin() {
+function Signin(props: SigninProps) {
   const t = useTranslations();
 
   const [isLoading, setIsLoading] = useState(false);
   const [email, setEmail] = useState('');
   const [step, setStep] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
-  const [referer, setReferer] = useState<string>('/');
 
   const schema: ZodType<FormData> = z.object({
     password: z
@@ -56,7 +56,7 @@ function Signin() {
       setIsLoading(true);
 
       await signIn('credentials', {
-        callbackUrl: referer,
+        callbackUrl: props.referer,
         email,
         password: data.password,
       });
@@ -68,12 +68,6 @@ function Signin() {
       setIsLoading(false);
     }
   };
-
-  useEffect(() => {
-    if (document.referrer) {
-      setReferer(document.referrer);
-    }
-  }, []);
 
   return (
     <div className='flex h-screen w-screen flex-col px-5 pb-4'>

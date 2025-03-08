@@ -43,6 +43,7 @@ next-env.d.ts
 /public/api/v1/products/men/**
 /public/api/v1/products/kids/**
 /public/api/v1/products/home/**
+/public/data/users.json
 
 # platform
 /iOS
