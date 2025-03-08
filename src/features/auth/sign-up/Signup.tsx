@@ -10,9 +10,10 @@ import { SignupHeader } from './SignupHeader';
 
 interface SignUpProps {
   messages: AbstractIntlMessages;
+  referer: string;
 }
 
-function Signup() {
+function Signup(props: SignUpProps) {
   const t = useTranslations();
 
   const [step, setStep] = useState(0);
@@ -91,7 +92,7 @@ function Signup() {
               </div>
             </>
           ) : (
-            <SignupForm />
+            <SignupForm referer={props.referer} />
           )}
         </main>
       </section>

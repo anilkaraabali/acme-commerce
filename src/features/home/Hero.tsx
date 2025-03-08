@@ -19,9 +19,9 @@ const Hero: FC = () => {
         <Image
           alt='Hero Image'
           height='2814'
-          objectFit='cover'
           priority
           src='/images/home/women-startpage.avif'
+          style={{ objectFit: 'cover' }}
           width='5000'
         />
       </NextLink>

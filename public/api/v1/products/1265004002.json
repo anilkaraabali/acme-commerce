@@ -29,7 +29,10 @@
         "currency": "£",
         "value": 54.99
       },
-      "sale_price": null,
+      "sale_price": {
+        "currency": "£",
+        "value": 46.75
+      },
       "title": "Long chiffon dress",
       "url": "/pdp/long-chiffon-dress?ct=true&colorId=4002&pid=1265004002",
       "variants": {
