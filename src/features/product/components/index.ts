@@ -4,3 +4,4 @@ export * from './ProductGridColors';
 export * from './ProductGridGallery';
 export * from './ProductGridSizes';
 export * from './ProductPrice';
+export * from './reviews';

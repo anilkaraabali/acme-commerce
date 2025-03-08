@@ -1,26 +1,31 @@
+import { ProductReview } from '@/features/product/types';
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
 
-import { ReviewsCard } from '../ReviewsCard';
+import { ProductReviewsCard } from '../ProductReviewsCard';
 
-const mockReview = {
-  author: 'John Doe',
+const mockReview: ProductReview = {
   content:
-    'This is a long review content that exceeds 128 characters. This content will be cropped when displayed in the ReviewsCard component, and can be expanded when the user clicks "Show more". It provides more details about the product and user experience.',
+    'This is a long review content that exceeds 128 characters. This content will be cropped when displayed in the ProductReviewsCard component, and can be expanded when the user clicks "Show more". It provides more details about the product and user experience.',
   createdAt: '2025-03-06T12:30:00Z',
   id: '1',
   rating: 4,
+  userId: 'user-123',
 };
 
-describe('ReviewsCard', () => {
+describe('ProductReviewsCard', () => {
   it('should render truncated content when disableToggle is false and content exceeds maxLength', () => {
     render(
-      <ReviewsCard disableToggle={false} maxLength={128} review={mockReview} />
+      <ProductReviewsCard
+        disableToggle={false}
+        maxLength={128}
+        review={mockReview}
+      />
     );
 
     expect(
       screen.getByText(
-        /This is a long review content that exceeds 128 characters. This content will be cropped when displayed in the ReviewsCard compon.../
+        /This is a long review content that exceeds 128 characters. This content will be cropped when displayed in the ProductReviewsCard.../
       )
     ).toBeInTheDocument();
     expect(screen.getByText('cta.showMore')).toBeInTheDocument();
@@ -28,7 +33,11 @@ describe('ReviewsCard', () => {
 
   it('should render full content when disableToggle is true', () => {
     render(
-      <ReviewsCard disableToggle={true} maxLength={128} review={mockReview} />
+      <ProductReviewsCard
+        disableToggle={true}
+        maxLength={128}
+        review={mockReview}
+      />
     );
 
     expect(screen.getByText(mockReview.content)).toBeInTheDocument();
@@ -37,12 +46,16 @@ describe('ReviewsCard', () => {
 
   it('should toggle content when clicking "Show more" button', () => {
     render(
-      <ReviewsCard disableToggle={false} maxLength={128} review={mockReview} />
+      <ProductReviewsCard
+        disableToggle={false}
+        maxLength={128}
+        review={mockReview}
+      />
     );
 
     expect(
       screen.getByText(
-        /This is a long review content that exceeds 128 characters. This content will be cropped when displayed in the ReviewsCard compon.../
+        /This is a long review content that exceeds 128 characters. This content will be cropped when displayed in the ProductReviewsCard.../
       )
     ).toBeInTheDocument();
 
@@ -59,7 +72,11 @@ describe('ReviewsCard', () => {
     };
 
     render(
-      <ReviewsCard disableToggle={false} maxLength={128} review={shortReview} />
+      <ProductReviewsCard
+        disableToggle={false}
+        maxLength={128}
+        review={shortReview}
+      />
     );
 
     expect(screen.queryByText('cta.showMore')).not.toBeInTheDocument();
@@ -68,7 +85,11 @@ describe('ReviewsCard', () => {
 
   it('should not render "Show more" button when disableToggle is true', () => {
     render(
-      <ReviewsCard disableToggle={true} maxLength={128} review={mockReview} />
+      <ProductReviewsCard
+        disableToggle={true}
+        maxLength={128}
+        review={mockReview}
+      />
     );
 
     expect(screen.queryByText('cta.showMore')).not.toBeInTheDocument();

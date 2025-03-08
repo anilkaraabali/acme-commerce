@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { useTranslations } from 'next-intl';
 import { FC } from 'react';
 
-import { Product } from '../model';
+import { Product } from '../types';
 
 interface ProductGridSizesProps {
   onSelectSize: (id: string) => void;
@@ -35,7 +35,7 @@ const ProductGridSizes: FC<ProductGridSizesProps> = ({
       </div>
       <ul className='grid grid-cols-5 gap-px'>
         {sizes.map((size) => (
-          <li key={size.id}>
+          <li key={size.name}>
             <button
               className={clsx(
                 'relative z-10 h-14 w-full py-2 outline outline-1 outline-default-300 transition-all duration-200 hover:z-20 hover:bg-default-100 hover:outline-foreground',

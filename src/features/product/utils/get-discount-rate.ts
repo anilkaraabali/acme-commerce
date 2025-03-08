@@ -1,4 +1,4 @@
-import { Product } from '../model';
+import { Product } from '../types';
 
 const productGetDiscountRate = (
   price: Product['price'],
@@ -17,7 +17,7 @@ const productGetDiscountRate = (
 
   return discountPercentage === 0
     ? null
-    : `-${Math.floor(discountPercentage)}%`;
+    : `-${Math.round(discountPercentage)}%`;
 };
 
 export { productGetDiscountRate };

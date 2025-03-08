@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { ReviewsCard } from './ReviewsCard';
+import { ProductReviewsCard } from '../components/reviews/ProductReviewsCard';
 
-const meta: Meta<typeof ReviewsCard> = {
-  component: ReviewsCard,
+const meta: Meta<typeof ProductReviewsCard> = {
+  component: ProductReviewsCard,
 };
 
 export default meta;
@@ -20,11 +20,12 @@ export const Base: Story = {
       createdAt: '2021-09-01T00:00:00.000Z',
       id: '1',
       rating: 4,
+      userId: '1',
     },
   },
   render: (args) => (
     <div className='max-w-[424px]'>
-      <ReviewsCard {...args} />
+      <ProductReviewsCard {...args} />
     </div>
   ),
 };

@@ -1,4 +1,3 @@
-import { Reviews } from '@/components/reviews';
 import { SanitizeHtmlAsync } from '@/components/sanitize-html';
 import { USER_FAVORITES_STORAGE_KEY, useAuth } from '@/features/auth';
 import { useSticky } from '@/hooks';
@@ -34,12 +33,27 @@ import {
   ProductGridSizes,
   ProductPrice,
 } from '../components';
-import { ProductDetailData } from '../model';
+import {
+  ProductReviewsProvider,
+  ProductReviewsSkeleton,
+} from '../components/reviews';
+import { ProductDetailData } from '../types';
 import { productGetDiscountRate, productGetUtmParams } from '../utils';
 
 const ShareAsync = dynamic(
   () => import('@/components/share').then((mod) => mod.Share),
   { ssr: false }
+);
+
+const ProductReviewsAsync = dynamic(
+  () =>
+    import('../components/reviews/ProductReviews').then(
+      (mod) => mod.ProductReviews
+    ),
+  {
+    loading: () => <ProductReviewsSkeleton />,
+    ssr: false,
+  }
 );
 
 interface ProductDetailProps extends LayoutProps {
@@ -170,7 +184,12 @@ function ProductDetail(props: ProductDetailProps) {
           <div className='mx-auto min-w-0 md:w-[320px] lg:w-[calc(100%-192px)] lg:min-w-[320px] lg:max-w-[458px]'>
             <div className='relative p-0 md:pb-8 md:pt-16 lg:pt-24'>
               {discountRate && (
-                <ProductDiscountBadge discountRate={discountRate} />
+                <ProductDiscountBadge
+                  classNames={{
+                    base: 'mb-4',
+                  }}
+                  discountRate={discountRate}
+                />
               )}
               <div className='flex flex-col pr-6'>
                 <h1 className='uppercase'>{product.title}</h1>
@@ -193,7 +212,7 @@ function ProductDetail(props: ProductDetailProps) {
               </Link>
               <div className='mt-4 flex items-center gap-2'>
                 <Image
-                  alt='Acme Store express'
+                  alt='Acme express'
                   height={26}
                   src='/icons/fulfilment_express.svg'
                   width={81}
@@ -247,14 +266,14 @@ function ProductDetail(props: ProductDetailProps) {
                   </Button>
                 </ButtonGroup>
               </div>
-              <Reviews
-                average={4.5}
-                classNames={{
-                  base: 'mb-2',
-                }}
-                count={3}
-                reviews={[]}
-              />
+              <ProductReviewsProvider productId={product.id}>
+                <ProductReviewsAsync
+                  classNames={{
+                    base: 'mb-2',
+                  }}
+                  productId={product.id}
+                />
+              </ProductReviewsProvider>
               <Accordion data-testid='product-details'>
                 <AccordionItem
                   aria-label={t('details.description')}

@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 
-import { Product } from '../../model';
+import { Product } from '../../types';
 import { ProductGridGallery } from '../ProductGridGallery';
 
 const mockImages: Product['images'] = [

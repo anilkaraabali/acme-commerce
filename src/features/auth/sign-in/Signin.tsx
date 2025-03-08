@@ -56,7 +56,7 @@ function Signin(props: SigninProps) {
       setIsLoading(true);
 
       await signIn('credentials', {
-        callbackUrl: props.referer,
+        callbackUrl: props.referer.includes('signup') ? '/' : props.referer,
         email,
         password: data.password,
       });

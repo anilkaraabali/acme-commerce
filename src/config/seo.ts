@@ -2,10 +2,10 @@ import { NextSeoProps } from 'next-seo';
 
 const seoConfig: NextSeoProps = {
   description:
-    "Acme Store is your shopping destination for fashion, home, beauty, kids' clothes and more. Browse the latest collections and find quality pieces at affordable prices.",
+    "Acme is your shopping destination for fashion, home, beauty, kids' clothes and more. Browse the latest collections and find quality pieces at affordable prices.",
   openGraph: {
     description:
-      "Acme Store is your shopping destination for fashion, home, beauty, kids' clothes and more. Browse the latest collections and find quality pieces at affordable prices.",
+      "Acme is your shopping destination for fashion, home, beauty, kids' clothes and more. Browse the latest collections and find quality pieces at affordable prices.",
     images: [
       {
         height: 630,
@@ -15,12 +15,12 @@ const seoConfig: NextSeoProps = {
       },
     ],
     locale: 'en_IE',
-    site_name: 'Acme Store',
-    title: 'Acme Store | Online Fashion, Homeware & Kids Clothes',
+    site_name: 'Acme',
+    title: 'Acme | Online Fashion, Homeware & Kids Clothes',
     type: 'website',
     url: 'https://nextjs.org/commerce',
   },
-  title: 'Acme Store | Online Fashion, Homeware & Kids Clothes',
+  title: 'Acme | Online Fashion, Homeware & Kids Clothes',
   twitter: {
     cardType: 'summary_large_image',
     handle: '@handle',

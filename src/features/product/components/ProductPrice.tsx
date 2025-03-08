@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { FC } from 'react';
 
-import { Product } from '../model';
+import { Product } from '../types';
 
 interface ProductPriceProps {
   classNames?: {

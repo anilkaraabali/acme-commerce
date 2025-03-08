@@ -27,7 +27,7 @@ function Signup(props: SignUpProps) {
             dangerouslySetInnerHTML={{ __html: t.raw('Auth.signUp.title') }}
           />
           <Image
-            alt='Acme store product sample'
+            alt='Acme product sample'
             height={344}
             priority
             src='/images/product-sample@3x.webp'

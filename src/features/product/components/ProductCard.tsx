@@ -2,11 +2,11 @@ import { USER_FAVORITES_STORAGE_KEY, useAuth } from '@/features/auth';
 import Image from 'next/image';
 import NextLink from 'next/link';
 import { useTranslations } from 'next-intl';
-import { FC, useCallback, useMemo } from 'react';
+import { FC, useCallback, useEffect, useMemo, useState } from 'react';
 import { LiaHeart, LiaHeartSolid } from 'react-icons/lia';
 import { useLocalStorage } from 'usehooks-ts';
 
-import { ProductListingData } from '../model';
+import { ProductListingData } from '../types';
 import { productGetDiscountRate } from '../utils';
 import { ProductDiscountBadge } from './ProductDiscountBadge';
 import { ProductPrice } from './ProductPrice';
@@ -23,6 +23,8 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
     USER_FAVORITES_STORAGE_KEY,
     []
   );
+
+  const [isFavorite, setIsFavorite] = useState(false);
 
   const discountRate = useMemo(
     () => productGetDiscountRate(product.price, product.salePrice),
@@ -42,6 +44,14 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
       return [...prevFavorites, product.id];
     });
   }, [user, setUserFavorites, product.id]);
+
+  useEffect(() => {
+    if (userFavorites.includes(product.id)) {
+      setIsFavorite(true);
+    } else {
+      setIsFavorite(false);
+    }
+  }, [userFavorites, product.id]);
 
   return (
     <article
@@ -63,7 +73,7 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
           data-testid='product-card-favorite'
           onClick={toggleFavorite}
         >
-          {!!user && userFavorites.includes(product.id) ? (
+          {isFavorite ? (
             <LiaHeartSolid className='text-red-500' size={20} />
           ) : (
             <LiaHeart size={20} />
