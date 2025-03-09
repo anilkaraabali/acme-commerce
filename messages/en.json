@@ -248,6 +248,8 @@
       "title": "Save your favourite items",
       "description": "Want to save the items that you love? Just click on the heart symbol beside the item and it will appear here.",
       "cta": "Explore Acme"
-    }
+    },
+    "total": "{count, plural, one {# item} other {# items}}",
+    "notificationText": "One or more of your favourites are sold out, but you can always try to find them in a store close to you."
   }
 }

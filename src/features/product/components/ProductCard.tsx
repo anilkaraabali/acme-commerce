@@ -12,11 +12,14 @@ import { ProductDiscountBadge } from './ProductDiscountBadge';
 import { ProductPrice } from './ProductPrice';
 
 interface ProductCardProps {
+  classNames?: {
+    image?: string;
+  };
   index: number;
   product: ProductListingData['data']['products'][0];
 }
 
-const ProductCard: FC<ProductCardProps> = ({ product }) => {
+const ProductCard: FC<ProductCardProps> = ({ classNames, product }) => {
   const t = useTranslations('Product');
   const { openAuthModal, user } = useAuth();
   const [userFavorites, setUserFavorites] = useLocalStorage<string[]>(
@@ -82,6 +85,7 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
         <picture>
           <Image
             alt={product.image.alt}
+            className={classNames?.image}
             data-testid='product-card-image'
             height={product.image.height}
             loading='eager'

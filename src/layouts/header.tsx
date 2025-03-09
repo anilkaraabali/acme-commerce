@@ -14,12 +14,21 @@ import {
 } from '@heroui/navbar';
 import { Button } from '@heroui/react';
 import NextLink from 'next/link';
+import { useRouter } from 'next/router';
 import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 import { LiaHeart, LiaShoppingCartSolid, LiaUserSolid } from 'react-icons/lia';
 
+const pathToMenuMap = new Map<string, string>([
+  ['/home', 'home'],
+  ['/kids', 'kids'],
+  ['/ladies', 'women'],
+  ['/men', 'men'],
+]);
+
 const Header = () => {
   const t = useTranslations();
+  const router = useRouter();
   const { user } = useAuth();
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -43,7 +52,12 @@ const Header = () => {
       </NavbarContent>
       <NavbarContent className='hidden gap-8 md:flex' justify='center'>
         {siteConfig.navMenuItems.map((item) => (
-          <NavbarItem key={item.href}>
+          <NavbarItem
+            isActive={
+              pathToMenuMap.get(router.pathname) === item.translationKey
+            }
+            key={item.href}
+          >
             <NextLink
               className='data-[active=true]:text-primary'
               color='foreground'
@@ -63,7 +77,6 @@ const Header = () => {
         >
           <LiaUserSolid size={20} />
         </Button>
-        {/* TODO: Implement favourites pages */}
         <Button as={NextLink} href='/favourites' isIconOnly variant='light'>
           <LiaHeart size={20} />
         </Button>
@@ -75,7 +88,12 @@ const Header = () => {
       <NavbarMenu>
         <div className='mx-4 mt-2 flex flex-col gap-2'>
           {siteConfig.navMenuItems.map((item, index) => (
-            <NavbarMenuItem key={`${item}-${index}`}>
+            <NavbarMenuItem
+              isActive={
+                pathToMenuMap.get(router.pathname) === item.translationKey
+              }
+              key={`${item}-${index}`}
+            >
               <Link color='foreground' href='#' size='lg'>
                 {t(
                   `Common.menu.${item.translationKey}` as DynamicTranslationKey
