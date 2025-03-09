@@ -285,7 +285,7 @@ const ProductDetail: NextPage<ProductDetailProps> = (props) => {
                   </Button>
                   <ButtonGroup color='default' size='lg' variant='ghost'>
                     <Button isIconOnly onPress={toggleFavorite} radius='none'>
-                      {!!user && userFavorites.includes(product.id) ? (
+                      {userFavorites.includes(product.id) ? (
                         <LiaHeartSolid className='text-red-500' size={20} />
                       ) : (
                         <LiaHeart size={20} />
