@@ -1,6 +1,6 @@
 import type { GetServerSideProps } from 'next';
 
-import { HomeProps } from '@/features/home/Home';
+import { HomeProps } from '@/features/home/pages';
 import { LocaleType } from '@/types';
 import { getMessages } from '@/utils';
 import { getServerSession } from 'next-auth';
@@ -18,4 +18,4 @@ export const getServerSideProps = (async (ctx) => {
   };
 }) satisfies GetServerSideProps<HomeProps>;
 
-export { default } from '@/features/home/Home';
+export { default } from '@/features/home/pages/Home';

@@ -26,13 +26,21 @@ function Signup(props: SignUpProps) {
             className='mb-9 text-center text-4xl text-background'
             dangerouslySetInnerHTML={{ __html: t.raw('Auth.signUp.title') }}
           />
-          <Image
-            alt='Acme product sample'
-            height={344}
-            priority
-            src='/images/product-sample@3x.webp'
-            width={420}
-          />
+          <video
+            autoPlay
+            className='w-full'
+            controlsList='nodownload'
+            disablePictureInPicture
+            disableRemotePlayback
+            loop
+            muted
+            playsInline
+          >
+            <source
+              src='https://image.hm.com/content/dam/global_campaigns/season_01/women/startpage-assets/wk09/2021-2x3-women-startpage-wk09.mp4'
+              type='video/mp4'
+            />
+          </video>
         </div>
       </aside>
       <section className='flex w-full flex-1 shrink grow basis-[10%] flex-col overflow-auto rounded-l-[16px] bg-background lg:-ml-4'>
