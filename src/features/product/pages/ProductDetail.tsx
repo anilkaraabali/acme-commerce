@@ -16,6 +16,7 @@ import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import NextLink from 'next/link';
 import { useTranslations } from 'next-intl';
+import { NextSeo } from 'next-seo';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import {
   LiaBell,
@@ -170,190 +171,202 @@ const ProductDetail: NextPage<ProductDetailProps> = (props) => {
   }, [activeColorVariant]);
 
   return (
-    <main>
-      <div className='md:flex'>
-        <div className='w-full max-w-full shrink-0 grow-0 md:w-1/2'>
-          <ProductGridGallery
-            classNames={{
-              list: 'pt-4',
-            }}
-            images={product.images}
-            onImageClick={setGalleryImageIndex}
-          />
-          <ProductGalleryCarousel
-            classNames={{
-              root: 'md:hidden',
-            }}
-            images={product.images}
-            onImageClick={setGalleryImageIndex}
-          />
-        </div>
-        <div
-          className={clsx(
-            'relative top-0 h-fit w-full max-w-full shrink-0 grow-0 px-4 pt-4 md:w-1/2 md:pl-4 md:pr-0',
-            {
-              sticky: isSticky,
-            }
-          )}
-          ref={stickyRef}
-        >
-          <div className='mx-auto min-w-0 md:w-[320px] lg:w-[calc(100%-192px)] lg:min-w-[320px] lg:max-w-[458px]'>
-            <div className='relative p-0 md:pb-8 md:pt-16 lg:pt-24'>
-              {discountRate && (
-                <ProductDiscountBadge
+    <>
+      <NextSeo
+        openGraph={{
+          images: product.images.map((image) => ({
+            height: image.height,
+            url: image.url,
+            width: image.width,
+          })),
+        }}
+        title={product.title}
+      />
+      <main>
+        <div className='md:flex'>
+          <div className='w-full max-w-full shrink-0 grow-0 md:w-1/2'>
+            <ProductGridGallery
+              classNames={{
+                list: 'pt-4',
+              }}
+              images={product.images}
+              onImageClick={setGalleryImageIndex}
+            />
+            <ProductGalleryCarousel
+              classNames={{
+                root: 'md:hidden',
+              }}
+              images={product.images}
+              onImageClick={setGalleryImageIndex}
+            />
+          </div>
+          <div
+            className={clsx(
+              'relative top-0 h-fit w-full max-w-full shrink-0 grow-0 px-4 pt-4 md:w-1/2 md:pl-4 md:pr-0',
+              {
+                sticky: isSticky,
+              }
+            )}
+            ref={stickyRef}
+          >
+            <div className='mx-auto min-w-0 md:w-[320px] lg:w-[calc(100%-192px)] lg:min-w-[320px] lg:max-w-[458px]'>
+              <div className='relative p-0 md:pb-8 md:pt-16 lg:pt-24'>
+                {discountRate && (
+                  <ProductDiscountBadge
+                    classNames={{
+                      base: 'mb-4',
+                    }}
+                    discountRate={discountRate}
+                  />
+                )}
+                <div className='flex flex-col pr-6'>
+                  <h1 className='uppercase'>{product.title}</h1>
+                </div>
+                <ProductPrice
                   classNames={{
-                    base: 'mb-4',
+                    base: 'text-base',
                   }}
-                  discountRate={discountRate}
+                  price={product.price}
+                  salePrice={product.salePrice}
                 />
-              )}
-              <div className='flex flex-col pr-6'>
-                <h1 className='uppercase'>{product.title}</h1>
-              </div>
-              <ProductPrice
-                classNames={{
-                  base: 'text-base',
-                }}
-                price={product.price}
-                salePrice={product.salePrice}
-              />
-              <Link
-                as={NextLink}
-                className='text-[10px]'
-                color='foreground'
-                href='/shop-guide'
-                target='_blank'
-              >
-                {t('vatInfo')}
-              </Link>
-              <div className='mt-4 flex items-center gap-2'>
-                <Image
-                  alt='Acme express'
-                  height={26}
-                  src='/icons/fulfilment_express.svg'
-                  width={81}
-                />
-                <p className='text-xs'>
-                  {t('arrivalDate', {
-                    date: dayjs(product.estimatedDeliveryDate).format(
-                      'dddd, MMMM D'
-                    ),
-                  })}
-                </p>
-              </div>
-              <ProductGridColors
-                colors={product.variants.colors}
-                selectedColorId={product.colorId}
-              />
-              {activeColorVariant.sizes.length > 1 && (
-                <LazyProductGridSizes
-                  onSelectSize={setSelectedSizeId}
-                  selectedSizeId={selectedSizeId}
-                  sizes={activeColorVariant.sizes}
-                />
-              )}
-              <div className='mb-10 mt-2 flex gap-2'>
-                <Button
-                  className='uppercase'
-                  color='primary'
-                  disabled={isOutOfStock}
-                  endContent={
-                    isOutOfStock ? (
-                      <LiaBell size={20} />
-                    ) : (
-                      <LiaCartPlusSolid size={20} />
-                    )
-                  }
-                  fullWidth
-                  onPress={addToCart}
-                  radius='none'
-                  size='lg'
+                <Link
+                  as={NextLink}
+                  className='text-[10px]'
+                  color='foreground'
+                  href='/shop-guide'
+                  target='_blank'
                 >
-                  {isOutOfStock ? t('cta.notifyMe') : t('cta.addToCart')}
-                </Button>
-                <ButtonGroup color='default' size='lg' variant='ghost'>
-                  <Button isIconOnly onPress={toggleFavorite} radius='none'>
-                    {!!user && userFavorites.includes(product.id) ? (
-                      <LiaHeartSolid className='text-red-500' size={20} />
-                    ) : (
-                      <LiaHeart size={20} />
-                    )}
+                  {t('vatInfo')}
+                </Link>
+                <div className='mt-4 flex items-center gap-2'>
+                  <Image
+                    alt='Acme express'
+                    height={26}
+                    src='/icons/fulfilment_express.svg'
+                    width={81}
+                  />
+                  <p className='text-xs'>
+                    {t('arrivalDate', {
+                      date: dayjs(product.estimatedDeliveryDate).format(
+                        'dddd, MMMM D'
+                      ),
+                    })}
+                  </p>
+                </div>
+                <ProductGridColors
+                  colors={product.variants.colors}
+                  selectedColorId={product.colorId}
+                />
+                {activeColorVariant.sizes.length > 1 && (
+                  <LazyProductGridSizes
+                    onSelectSize={setSelectedSizeId}
+                    selectedSizeId={selectedSizeId}
+                    sizes={activeColorVariant.sizes}
+                  />
+                )}
+                <div className='mb-10 mt-2 flex gap-2'>
+                  <Button
+                    className='uppercase'
+                    color='primary'
+                    disabled={isOutOfStock}
+                    endContent={
+                      isOutOfStock ? (
+                        <LiaBell size={20} />
+                      ) : (
+                        <LiaCartPlusSolid size={20} />
+                      )
+                    }
+                    fullWidth
+                    onPress={addToCart}
+                    radius='none'
+                    size='lg'
+                  >
+                    {isOutOfStock ? t('cta.notifyMe') : t('cta.addToCart')}
                   </Button>
-                  <Button isIconOnly onPress={shareProduct} radius='none'>
-                    <RxShare2 size={20} />
-                  </Button>
-                </ButtonGroup>
+                  <ButtonGroup color='default' size='lg' variant='ghost'>
+                    <Button isIconOnly onPress={toggleFavorite} radius='none'>
+                      {!!user && userFavorites.includes(product.id) ? (
+                        <LiaHeartSolid className='text-red-500' size={20} />
+                      ) : (
+                        <LiaHeart size={20} />
+                      )}
+                    </Button>
+                    <Button isIconOnly onPress={shareProduct} radius='none'>
+                      <RxShare2 size={20} />
+                    </Button>
+                  </ButtonGroup>
+                </div>
+                <ProductReviewsProvider productId={product.id}>
+                  <LazyProductReviews
+                    classNames={{
+                      base: 'mb-2',
+                    }}
+                    productId={product.id}
+                  />
+                </ProductReviewsProvider>
+                <Accordion data-testid='product-details'>
+                  <AccordionItem
+                    aria-label={t('details.description')}
+                    as='div'
+                    data-testid='product-description'
+                    indicator={<LiaPlusSolid className='text-foreground' />}
+                    key='1'
+                    title={t('details.description')}
+                  >
+                    <SanitizeHtml text={product.description} />
+                  </AccordionItem>
+                  <AccordionItem
+                    aria-label={t('details.materials')}
+                    as='div'
+                    data-testid='product-materials'
+                    indicator={<LiaPlusSolid className='text-foreground' />}
+                    key='2'
+                    title={t('details.materials')}
+                  >
+                    <SanitizeHtml text={product.materials} />
+                  </AccordionItem>
+                  <AccordionItem
+                    aria-label={t('details.careGuide')}
+                    as='div'
+                    data-testid='product-care-guide'
+                    indicator={<LiaPlusSolid className='text-foreground' />}
+                    key='3'
+                    title={t('details.careGuide')}
+                  >
+                    <SanitizeHtml text={product.careInstructions} />
+                  </AccordionItem>
+                  <AccordionItem
+                    aria-label={t('details.shipping')}
+                    as='div'
+                    data-testid='product-shipping'
+                    indicator={<LiaPlusSolid className='text-foreground' />}
+                    key='4'
+                    title={t('details.shipping')}
+                  >
+                    <SanitizeHtml text={t.raw('details.shippingInfo')} />
+                  </AccordionItem>
+                </Accordion>
               </div>
-              <ProductReviewsProvider productId={product.id}>
-                <LazyProductReviews
-                  classNames={{
-                    base: 'mb-2',
-                  }}
-                  productId={product.id}
-                />
-              </ProductReviewsProvider>
-              <Accordion data-testid='product-details'>
-                <AccordionItem
-                  aria-label={t('details.description')}
-                  as='div'
-                  data-testid='product-description'
-                  indicator={<LiaPlusSolid className='text-foreground' />}
-                  key='1'
-                  title={t('details.description')}
-                >
-                  <SanitizeHtml text={product.description} />
-                </AccordionItem>
-                <AccordionItem
-                  aria-label={t('details.materials')}
-                  as='div'
-                  data-testid='product-materials'
-                  indicator={<LiaPlusSolid className='text-foreground' />}
-                  key='2'
-                  title={t('details.materials')}
-                >
-                  <SanitizeHtml text={product.materials} />
-                </AccordionItem>
-                <AccordionItem
-                  aria-label={t('details.careGuide')}
-                  as='div'
-                  data-testid='product-care-guide'
-                  indicator={<LiaPlusSolid className='text-foreground' />}
-                  key='3'
-                  title={t('details.careGuide')}
-                >
-                  <SanitizeHtml text={product.careInstructions} />
-                </AccordionItem>
-                <AccordionItem
-                  aria-label={t('details.shipping')}
-                  as='div'
-                  data-testid='product-shipping'
-                  indicator={<LiaPlusSolid className='text-foreground' />}
-                  key='4'
-                  title={t('details.shipping')}
-                >
-                  <SanitizeHtml text={t.raw('details.shippingInfo')} />
-                </AccordionItem>
-              </Accordion>
             </div>
           </div>
         </div>
-      </div>
-      {isShareClicked && (
-        <LazyShare
-          campaign='productShare'
-          isOpen={isShareClicked}
-          onOpenChange={() => setIsShareClicked(false)}
-        />
-      )}
-      {galleryIndex > -1 && (
-        <LazyProductGalleryModal
-          images={product.images}
-          initialIndex={galleryIndex}
-          isOpen={galleryIndex > -1}
-          onOpenChange={(isOpen) => setGalleryImageIndex(isOpen ? 0 : -1)}
-        />
-      )}
-    </main>
+        {isShareClicked && (
+          <LazyShare
+            campaign='productShare'
+            isOpen={isShareClicked}
+            onOpenChange={() => setIsShareClicked(false)}
+          />
+        )}
+        {galleryIndex > -1 && (
+          <LazyProductGalleryModal
+            images={product.images}
+            initialIndex={galleryIndex}
+            isOpen={galleryIndex > -1}
+            onOpenChange={(isOpen) => setGalleryImageIndex(isOpen ? 0 : -1)}
+          />
+        )}
+      </main>
+    </>
   );
 };
 
