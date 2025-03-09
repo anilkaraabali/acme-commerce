@@ -1,0 +1,146 @@
+{
+  "data": {
+    "product": {
+      "care_instructions": "<p>Machine wash at 30°. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam.</p>",
+      "category": "shirt",
+      "color_id": "1001",
+      "description": "<p>New Arrival</p><br/><p>Short-sleeved shirt in a crinkled weave featuring a resort collar, French front, chest pocket and a straight-cut hem.</p><p>Regular fit for comfortable wear and a classic silhouette.</p>",
+      "estimated_delivery_date": "2025-03-24T14:30:45.123Z",
+      "target": "men",
+      "id": "1264829002",
+      "images": [
+        {
+          "alt": "Regular Fit Crinkled resort shirt - Black - Men | 1",
+          "height": 3240,
+          "url": "https://image.hm.com/assets/hm/9a/98/9a9870f06fb7d9044665a3a96f5470fae4f01845.jpg?imwidth=2160",
+          "width": 2160
+        },
+        {
+          "alt": "Regular Fit Crinkled resort shirt - Black - Men | 2",
+          "height": 3240,
+          "url": "https://image.hm.com/assets/hm/8a/a8/8aa87f2321b50f24bda015d89506724a984c5e4b.jpg?imwidth=2160",
+          "width": 2160
+        },
+        {
+          "alt": "Regular Fit Crinkled resort shirt - Black - Men | 3",
+          "height": 3240,
+          "url": "https://image.hm.com/assets/hm/0c/a6/0ca6ab6a3b0309eb30f18cfd8d7edf9c0cb34b71.jpg?imwidth=2160",
+          "width": 2160
+        },
+        {
+          "alt": "Regular Fit Crinkled resort shirt - Black - Men | 4",
+          "height": 3240,
+          "url": "https://image.hm.com/assets/hm/6c/5c/6c5c9dc6f602fdfbb3b2ef1390f0286f7e766525.jpg?imwidth=2160",
+          "width": 2160
+        },
+        {
+          "alt": "Regular Fit Crinkled resort shirt - Black - Men | 5",
+          "height": 3240,
+          "url": "https://image.hm.com/assets/hm/00/80/0080246a981ee12ff49c5cc51b12d8f524951587.jpg?imwidth=2160",
+          "width": 2160
+        },
+        {
+          "alt": "Regular Fit Crinkled resort shirt - Black - Men | 6",
+          "height": 3240,
+          "url": "https://image.hm.com/assets/hm/88/08/88088264b08db05f7235d5a250e29c79b218f245.jpg?imwidth=2160",
+          "width": 2160
+        }
+      ],
+      "limited_edition": false,
+      "materials": "<p>Shell: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p><br/><p>Lining: Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;.</p>",
+      "new_arrival": true,
+      "price": {
+        "currency": "£",
+        "value": 19.99
+      },
+      "sale_price": {
+        "currency": "£",
+        "value": 17.0
+      },
+      "title": "Regular fit crinkled resort shirt",
+      "url": "/pdp/regular-fit-crinkled-resort-shirt?ct=true&colorId=1001&pid=1264829002",
+      "variants": {
+        "colors": [
+          {
+            "id": "1001",
+            "image": {
+              "alt": "Black",
+              "height": 174,
+              "url": "https://image.hm.com/assets/hm/00/80/0080246a981ee12ff49c5cc51b12d8f524951587.jpg?imwidth=116",
+              "width": 116
+            },
+            "name": "Black",
+            "sizes": [
+              {
+                "id": "001",
+                "name": "XS",
+                "quantity": 50
+              },
+              {
+                "id": "002",
+                "name": "S",
+                "quantity": 50
+              },
+              {
+                "id": "003",
+                "name": "M",
+                "quantity": 50
+              },
+              {
+                "id": "004",
+                "name": "L",
+                "quantity": 50
+              },
+              {
+                "id": "005",
+                "name": "XL",
+                "quantity": 50
+              }
+            ],
+            "url": "/pdp/regular-fit-crinkled-resort-shirt?ct=true&colorId=1001&pid=1264829002",
+            "value": "#000"
+          },
+          {
+            "id": "1002",
+            "image": {
+              "alt": "Beige",
+              "height": 174,
+              "url": "https://image.hm.com/assets/hm/84/f8/84f85c97738b6ec7f69ec47da8460802569d20c7.jpg?imwidth=116",
+              "width": 116
+            },
+            "name": "Beige",
+            "sizes": [
+              {
+                "id": "001",
+                "name": "XS",
+                "quantity": 50
+              },
+              {
+                "id": "002",
+                "name": "S",
+                "quantity": 50
+              },
+              {
+                "id": "003",
+                "name": "M",
+                "quantity": 50
+              },
+              {
+                "id": "004",
+                "name": "L",
+                "quantity": 50
+              },
+              {
+                "id": "005",
+                "name": "XL",
+                "quantity": 50
+              }
+            ],
+            "url": "/pdp/regular-fit-crinkled-resort-shirt?ct=true&colorId=1002&pid=1264829003",
+            "value": "#9f978f"
+          }
+        ]
+      }
+    }
+  }
+}

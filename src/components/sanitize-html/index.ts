@@ -1,1 +1,1 @@
-export * from './SanitizeHtmlAsync';
+export * from './SanitizeHtml';

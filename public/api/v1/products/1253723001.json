@@ -1,0 +1,60 @@
+{
+  "data": {
+    "product": {
+      "care_instructions": "<p>Machine wash at 30°. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam.</p>",
+      "category": "kitchen",
+      "color_id": "1001",
+      "description": "<p>New Arrival</p><br/><p>A serving bowl crafted from mango wood and mounted on three small feet. Every piece is uniquely made and adds a natural charm to your table setting. Height approx. 11 cm. Diameter 17.5 cm.</p>",
+      "estimated_delivery_date": "2025-03-24T14:30:45.123Z",
+      "target": "home",
+      "id": "1253723001",
+      "images": [
+        {
+          "alt": "Mango wood serving bowl - Dark brown - Home All | 1",
+          "height": 3240,
+          "url": "https://image.hm.com/assets/hm/03/d2/03d2fd3f34a82ebc0908fde99ef8052f6dc810cc.jpg?imwidth=2160",
+          "width": 2160
+        },
+        {
+          "alt": "Mango wood serving bowl - Dark brown - Home All | 2",
+          "height": 3240,
+          "url": "https://image.hm.com/assets/hm/5e/c1/5ec1b95c38bbb707d6c07c4f6bc11230197d64fc.jpg?imwidth=2160",
+          "width": 2160
+        }
+      ],
+      "limited_edition": false,
+      "materials": "<p>Shell: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p><br/><p>Lining: Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;.</p>",
+      "new_arrival": true,
+      "price": {
+        "currency": "£",
+        "value": 14.99
+      },
+      "sale_price": null,
+      "title": "Mango wood serving bowl",
+      "url": "/pdp/mango-wood-serving-bowl?ct=true&colorId=1001&pid=1253723001",
+      "variants": {
+        "colors": [
+          {
+            "id": "1001",
+            "image": {
+              "alt": "Dark brown",
+              "height": 174,
+              "url": "https://image.hm.com/assets/hm/03/d2/03d2fd3f34a82ebc0908fde99ef8052f6dc810cc.jpg?imwidth=116",
+              "width": 116
+            },
+            "name": "Dark brown",
+            "sizes": [
+              {
+                "id": "001",
+                "name": "Std",
+                "quantity": 10
+              }
+            ],
+            "url": "/pdp/mango-wood-serving-bowl?ct=true&colorId=1001&pid=1253723001",
+            "value": "#4B2E1A"
+          }
+        ]
+      }
+    }
+  }
+}

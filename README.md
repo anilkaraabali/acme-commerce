@@ -4,7 +4,7 @@ Acme Commerce is a modern, fully-featured e-commerce web application built with 
 
 ## Demo 🎥
 
-Check out the live demo of Acme Commerce!
+Check out the live demo of Acme!
 
 [Demo](https://acme-commerce-beta.vercel.app/)
 
@@ -24,6 +24,26 @@ Acme Commerce is built with a modern stack to deliver a top-notch e-commerce exp
 - [Next-Intl](https://next-intl.dev/) 🌍: For internationalization and localization support.
 - [React Hook Form](https://react-hook-form.com/) 📝: For easy and performant form handling.
 
+## Prerequisites 🛠️
+
+Make sure you have Node.js version **18.20.4** or higher installed to run the project. You can check your Node.js version by running:
+
+```bash
+node --version
+```
+
+Also, ensure that pnpm is installed. You can check this by running:
+
+```bash
+pnpm --version
+```
+
+If pnpm is not installed, you can install it globally by running:
+
+```bash
+npm install -g pnpm
+```
+
 ## Getting Started ⚙️
 
 To get started with this project, clone the repository and install the dependencies:
@@ -31,20 +51,6 @@ To get started with this project, clone the repository and install the dependenc
 ```bash
 git clone https://github.com/anilkaraabali/acme-commerce.git
 cd acme-commerce
-```
-
-### Check if PNPM is Installed 🔍
-
-Before installing dependencies, make sure that **pnpm** is installed. You can check this by running:
-
-```bash
-pnpm --version
-```
-
-If **pnpm** is not installed, you can install it globally by running:
-
-```bash
-npm install -g pnpm
 ```
 
 Then, install the project dependencies:

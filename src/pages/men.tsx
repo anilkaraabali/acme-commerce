@@ -12,7 +12,7 @@ export const getServerSideProps = (async (ctx) => {
   const locale = ctx.locale as LocaleType;
 
   const [searchResult, messages] = await promiseAllSettled([
-    productService.fetchProducts('/ladies/index'),
+    productService.fetchProducts('/men/index'),
     getMessages(locale, ['Product']),
   ]);
 

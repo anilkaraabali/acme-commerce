@@ -1,5 +1,5 @@
 {
-  "name": "acme-commerce",
+  "name": "acme",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,10 +9,12 @@
     "dev": "pnpm pre:dev && next dev",
     "lint": "eslint . --max-warnings=0",
     "lint:fix": "eslint --fix --ext .js,.jsx,.ts,.tsx .",
+    "merge-all-products": "./scripts/merge-all-products/run.sh",
+    "merge-all-products:debug": "node ./scripts/merge-all-products/script.js --debug",
     "merge-products": "./scripts/merge-products/run.sh",
     "merge-products:debug": "node ./scripts/merge-products/script.js --debug",
     "pre:build": "pnpm pre",
-    "pre": "pnpm copy-pdf-worker && pnpm merge-products",
+    "pre": "pnpm copy-pdf-worker && pnpm merge-products && pnpm merge-all-products",
     "pre:dev": "pnpm pre",
     "prettier:check": "prettier . --check",
     "prettier:fix": "prettier . --write",

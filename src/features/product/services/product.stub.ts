@@ -10,7 +10,6 @@ const productResponseStub = (
   description:
     '<p>Acme Limited Edition • New Arrival</p><br/><p>Long dress in crêpe chiffon with a deep V-neckline and an unlined yoke and batwing sleeves detailed with covered elastication for a ruched effect. Loose fit with a narrow drawstring at the waist with dice-shaped metal beads. Viscose lining.</p>',
   estimated_delivery_date: '2025-03-24T14:30:45.123Z',
-  gender: 'ladies',
   id: '1263361002',
   images: [
     {
@@ -35,6 +34,7 @@ const productResponseStub = (
     value: 44.99,
   },
   sale_price: null,
+  target: 'ladies',
   title: 'Satin kaftan dress',
   url: '/pdp/satin-kaftan-dress?ct=true&colorId=1002&pid=1263361002',
   variants: {
