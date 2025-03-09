@@ -30,9 +30,9 @@ const HomeHero: FC = () => {
       </h1>
       <div className='aspect-9-16 relative flex w-full items-center justify-between overflow-hidden bg-content2'>
         <button className='absolute inset-0 z-10 size-full' onClick={onOpen} />
-        <div className='flex items-center p-6'>
+        <div className='flex items-center p-4 lg:p-6'>
           <h2
-            className='text-8xl font-bold uppercase text-foreground'
+            className='text-5xl font-bold uppercase text-foreground lg:text-8xl'
             dangerouslySetInnerHTML={{ __html: t.raw('Home.hero.headline') }}
           />
         </div>

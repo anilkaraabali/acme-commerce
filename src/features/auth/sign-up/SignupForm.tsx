@@ -68,8 +68,6 @@ const SignupForm: FC<SignupFormProps> = ({ referer }) => {
 
     const token = await executeRecaptcha('signUp');
 
-    console.log('token:', token);
-
     return token;
   }, [executeRecaptcha]);
 
@@ -107,8 +105,6 @@ const SignupForm: FC<SignupFormProps> = ({ referer }) => {
     },
     [verifyRecaptcha, reset]
   );
-
-  console.log('errors:', errors);
 
   return (
     <div className='flex flex-col gap-4'>
