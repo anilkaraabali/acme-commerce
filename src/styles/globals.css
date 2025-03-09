@@ -2,12 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --font-mono: 'Fira Code', monospace;
+}
+
 .grecaptcha-badge {
   @apply hidden;
 }
 
 .container {
   @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+}
+
+.page-title {
+  @apply mb-2 px-4 py-10 font-mono text-3xl font-bold uppercase lg:text-5xl;
+}
+
+.product-list-grid {
+  @apply grid grid-cols-2 gap-y-12 lg:grid-cols-4 lg:gap-y-14;
 }
 
 .clip-rect-0 {

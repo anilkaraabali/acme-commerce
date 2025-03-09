@@ -20,7 +20,7 @@ const ProductPrice: FC<ProductPriceProps> = ({
     {salePrice && (
       <span className='font-bold text-red-500' data-testid='product-sale-price'>
         {salePrice.currency}
-        {salePrice.value}
+        {salePrice.value.toFixed(2)}
       </span>
     )}
     <span
@@ -31,7 +31,7 @@ const ProductPrice: FC<ProductPriceProps> = ({
       data-testid='product-price'
     >
       {price.currency}
-      {price.value}
+      {price.value.toFixed(2)}
     </span>
   </p>
 );

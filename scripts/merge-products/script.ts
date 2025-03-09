@@ -47,46 +47,46 @@ async function mergeProducts() {
     Logger.info('Products fetched successfully!');
     Logger.debug('Fetched products:', JSON.stringify(products, null, 2));
 
-    // Group products by gender
+    // Group products by target
     Logger.info('Starting to group products...');
-    const groupedByGender = products.reduce(
+    const groupedByTarget = products.reduce(
       (acc: { [key: string]: ProductResponse[] }, product) => {
-        const gender = product.gender;
+        const target = product.target;
 
-        if (!acc[gender]) {
-          acc[gender] = [];
+        if (!acc[target]) {
+          acc[target] = [];
         }
 
-        acc[gender].push(product);
+        acc[target].push(product);
         return acc;
       },
       {}
     );
 
     Logger.info('Products grouped successfully!');
-    Logger.debug('Grouped products:', JSON.stringify(groupedByGender, null, 2));
+    Logger.debug('Grouped products:', JSON.stringify(groupedByTarget, null, 2));
 
     // Write grouped products to their respective directories
-    for (const gender in groupedByGender) {
-      const genderDir = path.join(productsDir, gender);
+    for (const target in groupedByTarget) {
+      const targetDir = path.join(productsDir, target);
 
       // Ensure the directory exists
-      await fs.mkdir(genderDir, { recursive: true });
-      Logger.info(`Directory for gender ${gender} created!`);
+      await fs.mkdir(targetDir, { recursive: true });
+      Logger.info(`Directory for target ${target} created!`);
 
       const meta = {
-        count: groupedByGender[gender].length,
-        left: groupedByGender[gender].length,
+        count: groupedByTarget[target].length,
+        left: groupedByTarget[target].length,
         pagination: {
           page: 1,
-          total: groupedByGender[gender].length,
+          total: groupedByTarget[target].length,
         },
       };
 
-      const filePath = path.join(genderDir, 'index.json');
+      const filePath = path.join(targetDir, 'index.json');
       const dataToWrite: ProductListingResponse = {
         data: {
-          products: groupedByGender[gender],
+          products: groupedByTarget[target],
         },
         meta,
       };
@@ -94,9 +94,9 @@ async function mergeProducts() {
       // Write the grouped product data to the 'index.json' file
       try {
         await fs.writeFile(filePath, JSON.stringify(dataToWrite, null, 2));
-        Logger.info(`Successfully wrote data for gender: ${gender}`);
+        Logger.info(`Successfully wrote data for target: ${target}`);
       } catch (writeError) {
-        Logger.error(`Error writing file for gender ${gender}:`, writeError);
+        Logger.error(`Error writing file for target ${target}:`, writeError);
       }
     }
 

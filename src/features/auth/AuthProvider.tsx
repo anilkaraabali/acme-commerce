@@ -19,7 +19,7 @@ interface AuthContextType {
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
-const AuthFeaturesModalAsync = dynamic(
+const LazyAuthFeaturesModal = dynamic(
   () => import('./FeaturesModal').then((mod) => mod.AuthFeaturesModal),
   { ssr: false }
 );
@@ -48,7 +48,7 @@ const AuthProvider: FC<PropsWithChildren> = ({ children }) => {
     <AuthContext.Provider value={{ openAuthModal, user: data?.user || null }}>
       {children}
       {isOpen && (
-        <AuthFeaturesModalAsync isOpen={isOpen} onOpenChange={setIsOpen} />
+        <LazyAuthFeaturesModal isOpen={isOpen} onOpenChange={setIsOpen} />
       )}
     </AuthContext.Provider>
   );

@@ -241,5 +241,13 @@
       "title": "I found something interesting!",
       "text": "Check this out!"
     }
+  },
+  "Favourites": {
+    "title": "Favourites",
+    "empty": {
+      "title": "Save your favourite items",
+      "description": "Want to save the items that you love? Just click on the heart symbol beside the item and it will appear here.",
+      "cta": "Explore Acme"
+    }
   }
 }

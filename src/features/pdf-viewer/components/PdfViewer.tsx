@@ -51,10 +51,8 @@ const PdfViewer: FC<PdfViewerProps> = ({ fileName, title }) => {
   );
 
   return (
-    <main className='container'>
-      <div className='py-8'>
-        <h1 className='text-center text-3xl font-bold uppercase'>{title}</h1>
-      </div>
+    <main>
+      <h1 className='page-title text-center'>{title}</h1>
       <Document
         className='flex flex-col items-center'
         file={fileName}

@@ -29,7 +29,12 @@ const ProductGridGallery: FC<ProductGridGalleryProps> = ({
       // Apply col-span-2 to:
       // - Every 3n+1 item (1st, 4th, 7th, ...)
       // - The 2nd item if there are only 2 images
-      const isSpanTwo = index % 3 === 0 || (images.length === 2 && index === 1);
+      // - The last item if it is the only item remaining
+      const totalImages = images.length;
+      const isSpanTwo =
+        index % 3 === 0 ||
+        (totalImages === 2 && index === 1) ||
+        (totalImages % 2 !== 0 && index === totalImages - 1);
 
       return (
         <li

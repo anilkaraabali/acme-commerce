@@ -1,0 +1,3 @@
+const PRODUCTS_PER_PAGE = 24;
+
+export { PRODUCTS_PER_PAGE };

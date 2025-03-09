@@ -1,4 +1,4 @@
-import { SanitizeHtmlAsync } from '@/components/sanitize-html';
+import { SanitizeHtml } from '@/components/sanitize-html';
 import { USER_FAVORITES_STORAGE_KEY, useAuth } from '@/features/auth';
 import { useSticky } from '@/hooks';
 import { LayoutProps } from '@/types';
@@ -11,6 +11,7 @@ import {
 } from '@heroui/react';
 import clsx from 'clsx';
 import dayjs from 'dayjs';
+import { NextPage } from 'next';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import NextLink from 'next/link';
@@ -30,7 +31,6 @@ import {
   ProductDiscountBadge,
   ProductGridColors,
   ProductGridGallery,
-  ProductGridSizes,
   ProductPrice,
 } from '../components';
 import {
@@ -40,12 +40,11 @@ import {
 import { ProductDetailData } from '../types';
 import { productGetDiscountRate, productGetUtmParams } from '../utils';
 
-const ShareAsync = dynamic(
+const LazyShare = dynamic(
   () => import('@/components/share').then((mod) => mod.Share),
   { ssr: false }
 );
-
-const ProductReviewsAsync = dynamic(
+const LazyProductReviews = dynamic(
   () =>
     import('../components/reviews/ProductReviews').then(
       (mod) => mod.ProductReviews
@@ -55,12 +54,19 @@ const ProductReviewsAsync = dynamic(
     ssr: false,
   }
 );
+const LazyProductGridSizes = dynamic(
+  () =>
+    import('../components/ProductGridSizes').then(
+      (mod) => mod.ProductGridSizes
+    ),
+  { ssr: true }
+);
 
 interface ProductDetailProps extends LayoutProps {
   detailResult: ProductDetailData;
 }
 
-function ProductDetail(props: ProductDetailProps) {
+const ProductDetail: NextPage<ProductDetailProps> = (props) => {
   const t = useTranslations('Product');
   const [stickyRef, isSticky] = useSticky<HTMLDivElement>();
   const { openAuthModal, user } = useAuth();
@@ -229,11 +235,13 @@ function ProductDetail(props: ProductDetailProps) {
                 colors={product.variants.colors}
                 selectedColorId={product.colorId}
               />
-              <ProductGridSizes
-                onSelectSize={setSelectedSizeId}
-                selectedSizeId={selectedSizeId}
-                sizes={activeColorVariant.sizes}
-              />
+              {activeColorVariant.sizes.length > 1 && (
+                <LazyProductGridSizes
+                  onSelectSize={setSelectedSizeId}
+                  selectedSizeId={selectedSizeId}
+                  sizes={activeColorVariant.sizes}
+                />
+              )}
               <div className='mb-10 mt-2 flex gap-2'>
                 <Button
                   className='uppercase'
@@ -267,7 +275,7 @@ function ProductDetail(props: ProductDetailProps) {
                 </ButtonGroup>
               </div>
               <ProductReviewsProvider productId={product.id}>
-                <ProductReviewsAsync
+                <LazyProductReviews
                   classNames={{
                     base: 'mb-2',
                   }}
@@ -283,7 +291,7 @@ function ProductDetail(props: ProductDetailProps) {
                   key='1'
                   title={t('details.description')}
                 >
-                  <SanitizeHtmlAsync text={product.description} />
+                  <SanitizeHtml text={product.description} />
                 </AccordionItem>
                 <AccordionItem
                   aria-label={t('details.materials')}
@@ -293,7 +301,7 @@ function ProductDetail(props: ProductDetailProps) {
                   key='2'
                   title={t('details.materials')}
                 >
-                  <SanitizeHtmlAsync text={product.materials} />
+                  <SanitizeHtml text={product.materials} />
                 </AccordionItem>
                 <AccordionItem
                   aria-label={t('details.careGuide')}
@@ -303,7 +311,7 @@ function ProductDetail(props: ProductDetailProps) {
                   key='3'
                   title={t('details.careGuide')}
                 >
-                  <SanitizeHtmlAsync text={product.careInstructions} />
+                  <SanitizeHtml text={product.careInstructions} />
                 </AccordionItem>
                 <AccordionItem
                   aria-label={t('details.shipping')}
@@ -313,7 +321,7 @@ function ProductDetail(props: ProductDetailProps) {
                   key='4'
                   title={t('details.shipping')}
                 >
-                  <SanitizeHtmlAsync text={t.raw('details.shippingInfo')} />
+                  <SanitizeHtml text={t.raw('details.shippingInfo')} />
                 </AccordionItem>
               </Accordion>
             </div>
@@ -321,7 +329,7 @@ function ProductDetail(props: ProductDetailProps) {
         </div>
       </div>
       {isShareClicked && (
-        <ShareAsync
+        <LazyShare
           campaign='productShare'
           isOpen={isShareClicked}
           onOpenChange={() => setIsShareClicked(false)}
@@ -329,7 +337,7 @@ function ProductDetail(props: ProductDetailProps) {
       )}
     </main>
   );
-}
+};
 
 export type { ProductDetailProps };
 export default ProductDetail;

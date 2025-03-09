@@ -25,7 +25,13 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <NextUINavbar maxWidth='xl' onMenuOpenChange={setIsMenuOpen}>
+    <NextUINavbar
+      classNames={{
+        wrapper: 'max-w-none',
+      }}
+      maxWidth='xl'
+      onMenuOpenChange={setIsMenuOpen}
+    >
       <NavbarContent justify='start'>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}

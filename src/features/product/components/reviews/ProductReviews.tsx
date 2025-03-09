@@ -1,13 +1,24 @@
 import { useAuth } from '@/features/auth';
 import { Button, Link, useDisclosure } from '@heroui/react';
 import clsx from 'clsx';
+import dynamic from 'next/dynamic';
 import { useTranslations } from 'next-intl';
 import { FC, useCallback } from 'react';
 import ReactStars from 'react-stars';
 
-import { ProductReviewsFormModal } from './ProductReviewsFormModal';
-import { ProductReviewsModal } from './ProductReviewsModal';
 import { useProductReviews } from './ProductReviewsProvider';
+
+const LazyProductReviewsFormModal = dynamic(
+  () =>
+    import('./ProductReviewsFormModal').then(
+      (mod) => mod.ProductReviewsFormModal
+    ),
+  { ssr: false }
+);
+const LazyProductReviewsModal = dynamic(
+  () => import('./ProductReviewsModal').then((mod) => mod.ProductReviewsModal),
+  { ssr: false }
+);
 
 interface ProductReviewsProps {
   classNames?: {
@@ -73,14 +84,14 @@ const ProductReviews: FC<ProductReviewsProps> = ({ classNames, productId }) => {
         </button>
       )}
       {isReviewsModalOpen && (
-        <ProductReviewsModal
+        <LazyProductReviewsModal
           isOpen={isReviewsModalOpen}
           onAddClick={handleAddClick}
           onOpenChange={onReviewsModalChange}
         />
       )}
       {isReviewFormOpen && (
-        <ProductReviewsFormModal
+        <LazyProductReviewsFormModal
           isOpen={isReviewFormOpen}
           onOpenChange={onReviewFormChange}
           productId={productId}
