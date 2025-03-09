@@ -211,6 +211,7 @@
   "Home": {
     "hero": {
       "title": "Acme | Online Fashion, Homeware & Kids Clothes",
+      "headline": "15% off <br/>for members*",
       "shopNow": "Shop now"
     }
   },

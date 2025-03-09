@@ -26,6 +26,10 @@
   clip: rect(0, 0, 0, 0);
 }
 
+.aspect-9-16 {
+  aspect-ratio: 9/16;
+}
+
 .product-color-cross {
   @apply absolute inset-0 size-full overflow-hidden;
 }

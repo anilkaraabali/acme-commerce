@@ -12,15 +12,11 @@ const config: Config = {
     aspectRatio: false,
   },
   darkMode: ['selector', '[data-theme="dark"]'],
-  plugins: [
-    heroui({
-      prefix: 'acme',
-    }),
-    aspectRatioPlugin,
-  ],
+  plugins: [heroui(), aspectRatioPlugin],
   theme: {
     extend: {
       aspectRatio: {
+        '9/16': '9 / 16',
         auto: 'auto',
         square: '1 / 1',
         video: '16 / 9',

@@ -5,7 +5,6 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import Image from 'next/image';
 import { signIn } from 'next-auth/react';
 import { AbstractIntlMessages, useTranslations } from 'next-intl';
-import LoginSVG from 'public/icons/auth/login.svg';
 import { useState } from 'react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { LiaEyeSlash, LiaEyeSolid } from 'react-icons/lia';
@@ -73,7 +72,7 @@ function Signin(props: SigninProps) {
     <div className='flex h-screen w-screen flex-col px-5 pb-4'>
       <SigninHeader />
       <div className='flex w-full grow justify-center rounded-xl bg-content2 dark:bg-content1'>
-        <div className='h-[calc(100%-50px)] w-full overflow-hidden pt-4 md:pt-12 lg:flex lg:gap-x-3'>
+        <div className='w-full overflow-hidden pt-4 lg:flex lg:gap-x-3 lg:pt-0'>
           <div className='flex w-full items-start justify-center px-4 lg:w-1/2 lg:items-center'>
             <div className='min-h-[500px] max-w-[400px]'>
               <div className='flex w-full flex-col items-center justify-center gap-12'>
@@ -187,20 +186,16 @@ function Signin(props: SigninProps) {
               </div>
             </div>
           </div>
-          <aside className='relative hidden items-center justify-center md:w-1/2 lg:flex'>
-            <div className='z-10 p-4'>
-              <LoginSVG />
-            </div>
-            <div className='absolute inset-x-0 overflow-hidden'>
-              <svg
-                fill='none'
-                height='600'
-                viewBox='0 0 704 600'
-                width='100%'
-                xmlns='http://www.w3.org/2000/svg'
-              >
-                <rect fill='#ECB462' height='600' rx='150' width='996' />
-              </svg>
+          <aside className='relative hidden h-full items-center justify-center md:w-1/2 lg:flex'>
+            <Image
+              alt='Sign in image'
+              fill
+              priority
+              src='/images/auth/signin-wk10-16x9.avif'
+              style={{ objectFit: 'cover' }}
+            />
+            <div className='absolute left-1/4 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center text-5xl uppercase text-white'>
+              Acme
             </div>
           </aside>
         </div>
