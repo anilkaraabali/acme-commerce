@@ -3,9 +3,22 @@ import type { GetServerSideProps } from 'next';
 import { SignUpProps } from '@/features/auth/sign-up/Signup';
 import { LocaleType } from '@/types';
 import { getMessages, getReferer } from '@/utils';
+import { getServerSession } from 'next-auth';
+
+import { authOptions } from '../api/auth/[...nextauth]';
 
 export const getServerSideProps = (async (ctx) => {
   const locale = ctx.locale as LocaleType;
+  const session = await getServerSession(ctx.req, ctx.res, authOptions);
+
+  if (session) {
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false,
+      },
+    };
+  }
 
   return {
     props: {
