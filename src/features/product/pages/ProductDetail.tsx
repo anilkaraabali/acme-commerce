@@ -87,7 +87,7 @@ const ProductDetail: NextPage<ProductDetailProps> = (props) => {
   const [galleryIndex, setGalleryImageIndex] = useState(-1);
   const [isShareClicked, setIsShareClicked] = useState(false);
 
-  const product = props.detailResult.product;
+  const { product } = props.detailResult;
 
   const { activeColorVariant, isOutOfStock } = useMemo(() => {
     const variant = product.variants.colors.find(

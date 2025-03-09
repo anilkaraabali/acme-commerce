@@ -73,8 +73,8 @@ const ProductCard: FC<ProductCardProps> = ({ classNames, product }) => {
           onClick={toggleFavorite}
         >
           <IconHeart
-            className={clsx({
-              'fill-red-500 text-red-500': isFavorite,
+            className={clsx('fill-black text-white', {
+              '!fill-red-500 !text-red-500': isFavorite,
             })}
           />
         </button>
