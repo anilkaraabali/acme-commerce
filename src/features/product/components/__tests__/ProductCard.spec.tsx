@@ -1,16 +1,8 @@
-import { useAuth } from '@/features/auth';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { useLocalStorage } from 'usehooks-ts';
 
 import { ProductListingData } from '../../types';
 import { ProductCard } from '../ProductCard';
-
-jest.mock('@/features/auth', () => ({
-  useAuth: jest.fn(() => ({
-    openAuthModal: jest.fn(),
-    user: null,
-  })),
-}));
 
 jest.mock('usehooks-ts', () => ({
   useLocalStorage: jest.fn(() => [[], jest.fn()]),
@@ -78,30 +70,9 @@ describe('ProductCard', () => {
     expect(screen.getAllByRole('link', { name: /red|blue/i })).toHaveLength(2);
   });
 
-  it('opens auth modal when user clicks favorite button and is not logged in', () => {
-    const openAuthModalMock = jest.fn();
-
-    (useAuth as jest.Mock).mockReturnValue({
-      openAuthModal: openAuthModalMock,
-      user: null,
-    });
-
-    render(<ProductCard index={0} product={mockProduct} />);
-
-    const favoriteButton = screen.getByTestId('product-card-favorite');
-
-    fireEvent.click(favoriteButton);
-
-    expect(openAuthModalMock).toHaveBeenCalledTimes(1);
-  });
-
-  test('toggles favorite button when user is logged in', () => {
+  it('toggles favorite button when clicked', () => {
     const setUserFavoritesMock = jest.fn();
 
-    (useAuth as jest.Mock).mockReturnValue({
-      openAuthModal: jest.fn(),
-      user: { id: 'user123' },
-    });
     (useLocalStorage as jest.Mock).mockReturnValue([[], setUserFavoritesMock]);
 
     render(<ProductCard index={0} product={mockProduct} />);

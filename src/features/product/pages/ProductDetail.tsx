@@ -120,10 +120,6 @@ const ProductDetail: NextPage<ProductDetailProps> = (props) => {
   };
 
   const toggleFavorite = useCallback(() => {
-    if (!user) {
-      return openAuthModal();
-    }
-
     setUserFavorites((prevFavorites) => {
       if (prevFavorites.includes(product.id)) {
         return prevFavorites.filter((id) => id !== product.id);
@@ -131,7 +127,7 @@ const ProductDetail: NextPage<ProductDetailProps> = (props) => {
 
       return [...prevFavorites, product.id];
     });
-  }, [user, setUserFavorites, product.id]);
+  }, [setUserFavorites, product.id]);
 
   const addToCart = useCallback(() => {
     if (isOutOfStock && !user) {

@@ -1,4 +1,4 @@
-import { USER_FAVORITES_STORAGE_KEY, useAuth } from '@/features/auth';
+import { USER_FAVORITES_STORAGE_KEY } from '@/features/auth';
 import Image from 'next/image';
 import NextLink from 'next/link';
 import { useTranslations } from 'next-intl';
@@ -21,7 +21,6 @@ interface ProductCardProps {
 
 const ProductCard: FC<ProductCardProps> = ({ classNames, product }) => {
   const t = useTranslations('Product');
-  const { openAuthModal, user } = useAuth();
   const [userFavorites, setUserFavorites] = useLocalStorage<string[]>(
     USER_FAVORITES_STORAGE_KEY,
     []
@@ -35,10 +34,6 @@ const ProductCard: FC<ProductCardProps> = ({ classNames, product }) => {
   );
 
   const toggleFavorite = useCallback(() => {
-    if (!user) {
-      return openAuthModal();
-    }
-
     setUserFavorites((prevFavorites) => {
       if (prevFavorites.includes(product.id)) {
         return prevFavorites.filter((id) => id !== product.id);
@@ -46,7 +41,7 @@ const ProductCard: FC<ProductCardProps> = ({ classNames, product }) => {
 
       return [...prevFavorites, product.id];
     });
-  }, [user, setUserFavorites, product.id]);
+  }, [setUserFavorites, product.id]);
 
   useEffect(() => {
     if (userFavorites.includes(product.id)) {

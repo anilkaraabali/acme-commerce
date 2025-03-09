@@ -7,9 +7,13 @@ import {
   createContext,
   useContext,
   useEffect,
+  useMemo,
   useState,
 } from 'react';
+import { useReadLocalStorage } from 'usehooks-ts';
 
+import { PRODUCT_REVIEWS_STORAGE_KEY } from '../product/constants';
+import { ProductReviewsMap } from '../product/types';
 import { IUser } from './user';
 
 interface AuthContextType {
@@ -27,6 +31,10 @@ const LazyAuthFeaturesModal = dynamic(
 const AuthProvider: FC<PropsWithChildren> = ({ children }) => {
   const router = useRouter();
   const { data } = useSession();
+  const productReviews = useReadLocalStorage<ProductReviewsMap>(
+    PRODUCT_REVIEWS_STORAGE_KEY
+  );
+  const user = data?.user;
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -44,8 +52,28 @@ const AuthProvider: FC<PropsWithChildren> = ({ children }) => {
     };
   }, [router]);
 
+  const userReviews = useMemo(
+    () =>
+      user
+        ? Object.values(productReviews ?? {})
+            .flat()
+            .filter((review) => review.userId === user?.id)
+        : [],
+    [productReviews, user]
+  );
+
   return (
-    <AuthContext.Provider value={{ openAuthModal, user: data?.user || null }}>
+    <AuthContext.Provider
+      value={{
+        openAuthModal,
+        user: user
+          ? {
+              ...user,
+              reviews: userReviews.length ? userReviews : [],
+            }
+          : null,
+      }}
+    >
       {children}
       {isOpen && (
         <LazyAuthFeaturesModal isOpen={isOpen} onOpenChange={setIsOpen} />
