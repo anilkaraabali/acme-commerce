@@ -29,6 +29,7 @@ import { useLocalStorage } from 'usehooks-ts';
 
 import {
   ProductDiscountBadge,
+  ProductGalleryCarousel,
   ProductGridColors,
   ProductGridGallery,
   ProductPrice,
@@ -61,6 +62,13 @@ const LazyProductGridSizes = dynamic(
     ),
   { ssr: true }
 );
+const LazyProductGalleryModal = dynamic(
+  () =>
+    import('../components/ProductGalleryModal').then(
+      (mod) => mod.ProductGalleryModal
+    ),
+  { ssr: false }
+);
 
 interface ProductDetailProps extends LayoutProps {
   detailResult: ProductDetailData;
@@ -75,8 +83,7 @@ const ProductDetail: NextPage<ProductDetailProps> = (props) => {
     []
   );
 
-  // TODO: Implement gallery modal
-  const [, setGalleryImageIndex] = useState(0);
+  const [galleryIndex, setGalleryImageIndex] = useState(-1);
   const [isShareClicked, setIsShareClicked] = useState(false);
 
   const product = props.detailResult.product;
@@ -165,7 +172,7 @@ const ProductDetail: NextPage<ProductDetailProps> = (props) => {
   return (
     <main>
       <div className='md:flex'>
-        <div className='w-1/2 max-w-full shrink-0 grow-0'>
+        <div className='w-full max-w-full shrink-0 grow-0 md:w-1/2'>
           <ProductGridGallery
             classNames={{
               list: 'pt-4',
@@ -173,10 +180,17 @@ const ProductDetail: NextPage<ProductDetailProps> = (props) => {
             images={product.images}
             onImageClick={setGalleryImageIndex}
           />
+          <ProductGalleryCarousel
+            classNames={{
+              root: 'md:hidden',
+            }}
+            images={product.images}
+            onImageClick={setGalleryImageIndex}
+          />
         </div>
         <div
           className={clsx(
-            'relative top-0 h-fit w-1/2 max-w-full shrink-0 grow-0 pl-4 pt-4',
+            'relative top-0 h-fit w-full max-w-full shrink-0 grow-0 px-4 pt-4 md:w-1/2 md:pl-4 md:pr-0',
             {
               sticky: isSticky,
             }
@@ -329,6 +343,14 @@ const ProductDetail: NextPage<ProductDetailProps> = (props) => {
           campaign='productShare'
           isOpen={isShareClicked}
           onOpenChange={() => setIsShareClicked(false)}
+        />
+      )}
+      {galleryIndex > -1 && (
+        <LazyProductGalleryModal
+          images={product.images}
+          initialIndex={galleryIndex}
+          isOpen={galleryIndex > -1}
+          onOpenChange={(isOpen) => setGalleryImageIndex(isOpen ? 0 : -1)}
         />
       )}
     </main>
