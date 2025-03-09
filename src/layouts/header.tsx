@@ -2,7 +2,6 @@ import { Logo } from '@/components/logo';
 import { siteConfig } from '@/config';
 import { useAuth } from '@/features/auth';
 import { DynamicTranslationKey } from '@/types';
-import { Link } from '@heroui/link';
 import {
   NavbarBrand,
   NavbarContent,
@@ -38,6 +37,7 @@ const Header = () => {
       classNames={{
         wrapper: 'max-w-none',
       }}
+      isMenuOpen={isMenuOpen}
       maxWidth='xl'
       onMenuOpenChange={setIsMenuOpen}
     >
@@ -94,11 +94,16 @@ const Header = () => {
               }
               key={`${item}-${index}`}
             >
-              <Link color='foreground' href='#' size='lg'>
+              <NextLink
+                className='data-[active=true]:text-primary'
+                color='foreground'
+                href={item.href}
+                onClick={() => setIsMenuOpen(false)}
+              >
                 {t(
                   `Common.menu.${item.translationKey}` as DynamicTranslationKey
                 )}
-              </Link>
+              </NextLink>
             </NavbarMenuItem>
           ))}
         </div>

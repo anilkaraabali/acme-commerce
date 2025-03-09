@@ -18,13 +18,13 @@ const seoConfig: NextSeoProps = {
     site_name: 'Acme',
     title: 'Acme | Online Fashion, Homeware & Kids Clothes',
     type: 'website',
-    url: 'https://nextjs.org/commerce',
+    url: 'https://acme-commerce-beta.vercel.app',
   },
   title: 'Acme | Online Fashion, Homeware & Kids Clothes',
   twitter: {
     cardType: 'summary_large_image',
     handle: '@handle',
-    site: 'https://nextjs.org/commerce',
+    site: 'https://acme-commerce-beta.vercel.app/',
   },
 };
 
