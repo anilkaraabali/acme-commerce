@@ -11,7 +11,7 @@ import {
   NavbarMenuToggle,
   Navbar as NextUINavbar,
 } from '@heroui/navbar';
-import { Button } from '@heroui/react';
+import { Button, addToast } from '@heroui/react';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import { useTranslations } from 'next-intl';
@@ -81,7 +81,18 @@ const Header = () => {
           <LiaHeart size={20} />
         </Button>
         {/* TODO: Implement cart pages */}
-        <Button as={NextLink} href='/cart' isIconOnly variant='light'>
+        <Button
+          href='/cart'
+          isIconOnly
+          onPress={() =>
+            addToast({
+              color: 'primary',
+              severity: 'primary',
+              title: "🚧 Hold on, the cart's still under construction!",
+            })
+          }
+          variant='light'
+        >
           <LiaShoppingCartSolid size={20} />
         </Button>
       </NavbarContent>
