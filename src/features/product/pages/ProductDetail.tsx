@@ -214,6 +214,7 @@ const ProductDetail: NextPage<ProductDetailProps> = (props) => {
                 {discountRate && (
                   <ProductDiscountBadge
                     classNames={{
+                      badge: 'bg-foreground !text-background',
                       base: 'mb-4',
                     }}
                     discountRate={discountRate}

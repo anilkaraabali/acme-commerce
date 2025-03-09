@@ -1,9 +1,10 @@
+import { IconHeart } from '@/components/icons';
 import { USER_FAVORITES_STORAGE_KEY } from '@/features/auth';
+import clsx from 'clsx';
 import Image from 'next/image';
 import NextLink from 'next/link';
 import { useTranslations } from 'next-intl';
 import { FC, useCallback, useEffect, useMemo, useState } from 'react';
-import { LiaHeart, LiaHeartSolid } from 'react-icons/lia';
 import { useLocalStorage } from 'usehooks-ts';
 
 import { ProductListingData } from '../types';
@@ -71,11 +72,11 @@ const ProductCard: FC<ProductCardProps> = ({ classNames, product }) => {
           data-testid='product-card-favorite'
           onClick={toggleFavorite}
         >
-          {isFavorite ? (
-            <LiaHeartSolid className='text-red-500' size={20} />
-          ) : (
-            <LiaHeart size={20} />
-          )}
+          <IconHeart
+            className={clsx({
+              'fill-red-500 text-red-500': isFavorite,
+            })}
+          />
         </button>
         <picture>
           <Image
@@ -91,7 +92,7 @@ const ProductCard: FC<ProductCardProps> = ({ classNames, product }) => {
         </picture>
         <NextLink
           className='absolute inset-0'
-          data-testid='product-card-link'
+          data-testid='product-card-image-link'
           href={product.url}
           title={product.title}
         />
@@ -118,8 +119,8 @@ const ProductCard: FC<ProductCardProps> = ({ classNames, product }) => {
         ) : (
           product.variants.colors.length > 1 && (
             <ul className='flex gap-1 py-1' data-testid='product-card-colors'>
-              {product.variants.colors.map((color, index) => (
-                <li className='flex' key={index}>
+              {product.variants.colors.map((color) => (
+                <li className='flex' key={color.value}>
                   <NextLink
                     className='inline-block size-2 border-1 border-foreground'
                     href={color.url || product.url}
