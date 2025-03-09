@@ -73,12 +73,14 @@ If you encounter the following error during the development server startup:
 
 ```bash
 sh: ./scripts/merge-products/run.sh: Permission denied
+sh: ./scripts/merge-all-products/run.sh: Permission denied
 ```
 
 You can resolve it by changing the permissions of the script to make it executable:
 
 ```bash
 chmod +x ./scripts/merge-products/run.sh
+chmod +x ./scripts/merge-all-products/run.sh
 ```
 
 Then, re-run the development server:
