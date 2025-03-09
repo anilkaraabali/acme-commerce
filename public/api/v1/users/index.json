@@ -1,0 +1,12 @@
+[
+  {
+    "email": "user@gmail.com",
+    "id": "492829a4-37a7-4ef5-ba8e-e0000138d1f0",
+    "image": null,
+    "name": "Test User",
+    "password": "$2a$10$utoJ7wB/wSwdRv8Lh/1C6ORnJ.cPTmp5O855XBEVI311B7cux8Y/6",
+    "provider": "credentials",
+    "providerId": "user@gmail.com",
+    "reviews": []
+  }
+]
