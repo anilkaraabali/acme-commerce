@@ -1,8 +1,10 @@
-import { IUser } from '@/features/auth';
-import { readUsersFromFile, writeUsersToFile } from '@/features/auth/user/util';
+import { User } from '@/features/auth';
+import {
+  readUsersFromFile,
+  writeUsersToFile,
+} from '@/features/auth/utils/user';
 import { hash } from 'bcryptjs';
 import { NextApiRequest, NextApiResponse } from 'next';
-import { v4 as uuidv4 } from 'uuid';
 
 export default async function handler(
   req: NextApiRequest,
@@ -26,9 +28,9 @@ export default async function handler(
     }
 
     const hashedPassword = await hash(password, 10);
-    const newUser: IUser = {
+    const newUser: User = {
       email,
-      id: uuidv4(),
+      id: crypto.randomUUID(),
       image: null,
       name,
       password: hashedPassword,

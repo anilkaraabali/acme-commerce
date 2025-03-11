@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import { Button, Form, Input } from '@heroui/react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import NextLink from 'next/link';
@@ -11,11 +10,11 @@ type FormData = {
   email: string;
 };
 
-interface SigninEmailFormProps {
+interface SignInEmailFormProps {
   onVerify: (email: string) => void;
 }
 
-const SigninEmailForm: FC<SigninEmailFormProps> = ({ onVerify }) => {
+const SignInEmailForm: FC<SignInEmailFormProps> = ({ onVerify }) => {
   const t = useTranslations();
 
   const [isLoading, setIsLoading] = useState(false);
@@ -60,6 +59,7 @@ const SigninEmailForm: FC<SigninEmailFormProps> = ({ onVerify }) => {
         setIsError(true);
       }
     } catch (error) {
+      // eslint-disable-next-line no-console
       console.error('Sign in email existency error:', error);
     } finally {
       setIsLoading(false);
@@ -116,5 +116,4 @@ const SigninEmailForm: FC<SigninEmailFormProps> = ({ onVerify }) => {
   );
 };
 
-export type { SigninEmailFormProps };
-export { SigninEmailForm };
+export { SignInEmailForm };

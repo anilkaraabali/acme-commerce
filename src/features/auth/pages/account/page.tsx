@@ -1,36 +1,35 @@
 import { Button } from '@heroui/react';
+import { NextPage } from 'next';
 import { signOut } from 'next-auth/react';
 import { AbstractIntlMessages, useTranslations } from 'next-intl';
 
-import { useAuth } from '../AuthProvider';
+import { useAuth } from '../../providers/auth-provider';
 
-interface AccountProps {
+interface AccountPageProps {
   messages: AbstractIntlMessages;
 }
 
-function Account() {
+const AccountPage: NextPage<AccountPageProps> = () => {
   const t = useTranslations('Auth');
   const { user } = useAuth();
+
+  const handleSignOut = () => {
+    signOut({
+      callbackUrl: '/',
+    });
+  };
 
   return (
     <div className='pt-8'>
       <div className='container flex flex-col items-start gap-4'>
         <h1>{t('account.welcome.title', { name: user?.name })}</h1>
-        <Button
-          color='danger'
-          onPress={() =>
-            signOut({
-              callbackUrl: '/',
-            })
-          }
-          variant='flat'
-        >
+        <Button color='danger' onPress={handleSignOut} variant='flat'>
           {t('signOut.cta')}
         </Button>
       </div>
     </div>
   );
-}
+};
 
-export type { AccountProps };
-export default Account;
+export type { AccountPageProps };
+export default AccountPage;

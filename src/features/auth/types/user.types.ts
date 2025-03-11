@@ -1,6 +1,6 @@
 import { ProductReview } from '@/features/product/types';
 
-interface IUser {
+interface User {
   email: string;
   id: string;
   image: null | string;
@@ -11,4 +11,4 @@ interface IUser {
   reviews: ProductReview[];
 }
 
-export type { IUser };
+export type { User };

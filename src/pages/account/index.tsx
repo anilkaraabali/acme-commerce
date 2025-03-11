@@ -1,6 +1,6 @@
 import type { GetServerSideProps } from 'next';
 
-import { AccountProps } from '@/features/auth/account/Account';
+import { AccountPageProps } from '@/features/auth/pages/account/page';
 import { LocaleType } from '@/types';
 import { getMessages } from '@/utils';
 import { getServerSession } from 'next-auth';
@@ -8,9 +8,7 @@ import { getServerSession } from 'next-auth';
 import { authOptions } from '../api/auth/[...nextauth]';
 
 export const getServerSideProps = (async (ctx) => {
-  const locale = (
-    ctx.locale !== undefined && ctx.locale !== 'en' ? ctx.locale : 'en'
-  ) as LocaleType;
+  const locale = ctx.locale as LocaleType;
 
   const session = await getServerSession(ctx.req, ctx.res, authOptions);
 
@@ -29,6 +27,6 @@ export const getServerSideProps = (async (ctx) => {
       session,
     },
   };
-}) satisfies GetServerSideProps<AccountProps>;
+}) satisfies GetServerSideProps<AccountPageProps>;
 
-export { default } from '@/features/auth/account/Account';
+export { default } from '@/features/auth/pages/account/page';

@@ -11,7 +11,9 @@ const UserAvatar: FC<UserAvatarProps> = ({ name }) => {
   const t = useTranslations('Auth');
 
   const getInitials = (name: string = '') => {
-    if (!name) return '';
+    if (!name) {
+      return '';
+    }
 
     return name
       .split(' ')

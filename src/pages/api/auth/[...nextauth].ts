@@ -1,7 +1,7 @@
 import type { NextAuthOptions } from 'next-auth';
 
-import { IUser } from '@/features/auth';
-import { readUsersFromFile } from '@/features/auth/user/util';
+import { User as IUser } from '@/features/auth';
+import { readUsersFromFile } from '@/features/auth/utils/user';
 import { compare } from 'bcryptjs';
 import NextAuth, { DefaultSession, DefaultUser } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';

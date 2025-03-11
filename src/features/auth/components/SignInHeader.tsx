@@ -5,7 +5,7 @@ import NextLink from 'next/link';
 import { useTranslations } from 'next-intl';
 import { FC } from 'react';
 
-const SigninHeader: FC = () => {
+const SignInHeader: FC = () => {
   const t = useTranslations('Auth');
 
   return (
@@ -41,4 +41,4 @@ const SigninHeader: FC = () => {
   );
 };
 
-export { SigninHeader };
+export { SignInHeader };

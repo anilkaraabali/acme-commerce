@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import { NextPageWithLayout } from '@/pages/_app';
 import { Button, Divider, Form, Input } from '@heroui/react';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -10,25 +9,25 @@ import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { LiaEyeSlash, LiaEyeSolid } from 'react-icons/lia';
 import { ZodType, z } from 'zod';
 
-import { SigninEmailForm } from './SignInEmailForm';
-import { SigninHeader } from './SigninHeader';
+import { SignInEmailForm } from '../../components/SignInEmailForm';
+import { SignInHeader } from '../../components/SignInHeader';
 
 type FormData = {
   password: string;
 };
 
-interface SigninProps {
+interface SignInPageProps {
   messages: AbstractIntlMessages;
   referer: string;
 }
 
-function Signin(props: SigninProps) {
+const SignInPage = (props: SignInPageProps) => {
   const t = useTranslations();
 
   const [isLoading, setIsLoading] = useState(false);
   const [email, setEmail] = useState('');
   const [step, setStep] = useState(0);
-  const [isVisible, setIsVisible] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const schema: ZodType<FormData> = z.object({
     password: z
@@ -48,7 +47,7 @@ function Signin(props: SigninProps) {
     resolver: zodResolver(schema),
   });
 
-  const togglePasswordVisibility = () => setIsVisible(!isVisible);
+  const togglePasswordVisibility = () => setShowPassword(!showPassword);
 
   const handleFormSubmit: SubmitHandler<FormData> = async (data) => {
     try {
@@ -62,7 +61,8 @@ function Signin(props: SigninProps) {
 
       reset();
     } catch (error) {
-      console.error('Sign in error', error);
+      // eslint-disable-next-line no-console
+      console.error('Sign in error:', error);
     } finally {
       setIsLoading(false);
     }
@@ -70,7 +70,7 @@ function Signin(props: SigninProps) {
 
   return (
     <div className='flex h-screen w-screen flex-col px-5 pb-4'>
-      <SigninHeader />
+      <SignInHeader />
       <div className='flex w-full grow justify-center rounded-xl bg-content2 dark:bg-content1'>
         <div className='w-full overflow-hidden pt-4 lg:flex lg:gap-x-3 lg:pt-0'>
           <div className='flex w-full items-start justify-center px-4 lg:w-1/2 lg:items-center'>
@@ -91,7 +91,7 @@ function Signin(props: SigninProps) {
                     size='lg'
                     startContent={
                       <Image
-                        alt='Continue with Google'
+                        alt=''
                         height={24}
                         src='/icons/socials/google.svg'
                         width={24}
@@ -107,7 +107,7 @@ function Signin(props: SigninProps) {
                     size='lg'
                     startContent={
                       <Image
-                        alt='Continue with Facebook'
+                        alt=''
                         height={24}
                         src='/icons/socials/facebook.svg'
                         width={24}
@@ -119,10 +119,10 @@ function Signin(props: SigninProps) {
                   </Button>
                   <Divider className='my-4' />
                   {step === 0 ? (
-                    <SigninEmailForm
+                    <SignInEmailForm
                       onVerify={(email) => {
-                        setStep(1);
                         setEmail(email);
+                        setStep(1);
                       }}
                     />
                   ) : (
@@ -142,12 +142,17 @@ function Signin(props: SigninProps) {
                             }}
                             endContent={
                               <button
-                                aria-label='toggle password visibility'
+                                aria-label={t('Auth.password.toggle')}
                                 className='focus:outline-none'
                                 onClick={togglePasswordVisibility}
+                                title={
+                                  showPassword
+                                    ? t('Auth.password.hide')
+                                    : t('Auth.password.show')
+                                }
                                 type='button'
                               >
-                                {isVisible ? (
+                                {showPassword ? (
                                   <LiaEyeSlash
                                     className='pointer-events-none text-default-400'
                                     size={24}
@@ -165,7 +170,7 @@ function Signin(props: SigninProps) {
                             isRequired
                             placeholder={t('Common.form.password.placeholder')}
                             size='lg'
-                            type={isVisible ? 'text' : 'password'}
+                            type={showPassword ? 'text' : 'password'}
                             variant='faded'
                           />
                         )}
@@ -202,9 +207,9 @@ function Signin(props: SigninProps) {
       </div>
     </div>
   );
-}
+};
 
-export type { SigninProps };
-export default Signin;
+export type { SignInPageProps };
+export default SignInPage;
 
-Signin.getLayout = (page: NextPageWithLayout) => page;
+SignInPage.getLayout = (page: NextPageWithLayout) => page;

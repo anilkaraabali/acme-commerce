@@ -4,7 +4,7 @@ import NextLink from 'next/link';
 import { useTranslations } from 'next-intl';
 import { FC } from 'react';
 
-const SignupHeader: FC = () => {
+const SignUpHeader: FC = () => {
   const t = useTranslations('Auth');
 
   return (
@@ -32,4 +32,4 @@ const SignupHeader: FC = () => {
   );
 };
 
-export { SignupHeader };
+export { SignUpHeader };

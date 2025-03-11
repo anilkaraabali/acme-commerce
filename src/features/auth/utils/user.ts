@@ -2,7 +2,7 @@
 import fs from 'fs/promises';
 import path from 'path';
 
-import { IUser } from './types';
+import { User } from '../types';
 
 const rootDir = process.cwd();
 const publicDir = path.join(rootDir, 'public');
@@ -20,7 +20,7 @@ const ensureFileExists = async (): Promise<void> => {
   }
 };
 
-const readUsersFromFile = async (): Promise<IUser[]> => {
+const readUsersFromFile = async (): Promise<User[]> => {
   await ensureFileExists();
   try {
     const fileData = await fs.readFile(usersFilePath, 'utf-8');
@@ -33,7 +33,7 @@ const readUsersFromFile = async (): Promise<IUser[]> => {
   }
 };
 
-const writeUsersToFile = async (users: IUser[]): Promise<void> => {
+const writeUsersToFile = async (users: User[]): Promise<void> => {
   await ensureFileExists();
   try {
     await fs.writeFile(usersFilePath, JSON.stringify(users, null, 2), 'utf-8');

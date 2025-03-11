@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import { Alert, Button, Checkbox, Form, Input } from '@heroui/react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { signIn } from 'next-auth/react';
@@ -16,19 +15,19 @@ type FormData = {
   terms: boolean;
 };
 
-interface SignupFormProps {
+interface SignUpFormProps {
   referer: string;
 }
 
-const SignupForm: FC<SignupFormProps> = ({ referer }) => {
+const SignUpForm: FC<SignUpFormProps> = ({ referer }) => {
   const t = useTranslations();
   const { executeRecaptcha } = useGoogleReCaptcha();
 
   const [isLoading, setIsLoading] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
 
-  const toggleVisibility = () => setIsVisible(!isVisible);
+  const toggleVisibility = () => setShowPassword(!showPassword);
 
   const schema: ZodType<FormData> = z.object({
     email: z
@@ -61,14 +60,13 @@ const SignupForm: FC<SignupFormProps> = ({ referer }) => {
 
   const verifyRecaptcha = useCallback(async () => {
     if (!executeRecaptcha) {
+      // eslint-disable-next-line no-console
       console.log('Execute recaptcha not yet available');
 
       return;
     }
 
-    const token = await executeRecaptcha('signUp');
-
-    return token;
+    return await executeRecaptcha('signUp');
   }, [executeRecaptcha]);
 
   const handleFormSubmit: SubmitHandler<FormData> = useCallback(
@@ -98,7 +96,8 @@ const SignupForm: FC<SignupFormProps> = ({ referer }) => {
 
         reset();
       } catch (err) {
-        console.error('Sign up error', err);
+        // eslint-disable-next-line no-console
+        console.error('Sign up error:', err);
       } finally {
         setIsLoading(false);
       }
@@ -162,12 +161,17 @@ const SignupForm: FC<SignupFormProps> = ({ referer }) => {
               {...field}
               endContent={
                 <button
-                  aria-label='toggle password visibility'
+                  aria-label={t('Auth.password.toggle')}
                   className='focus:outline-none'
                   onClick={toggleVisibility}
+                  title={
+                    showPassword
+                      ? t('Auth.password.hide')
+                      : t('Auth.password.show')
+                  }
                   type='button'
                 >
-                  {isVisible ? (
+                  {showPassword ? (
                     <LiaEyeSlash
                       className='pointer-events-none text-default-400'
                       size={24}
@@ -185,7 +189,7 @@ const SignupForm: FC<SignupFormProps> = ({ referer }) => {
               isRequired
               placeholder={t('Common.form.password.placeholder')}
               size='lg'
-              type={isVisible ? 'text' : 'password'}
+              type={showPassword ? 'text' : 'password'}
               variant='faded'
             />
           )}
@@ -228,5 +232,5 @@ const SignupForm: FC<SignupFormProps> = ({ referer }) => {
   );
 };
 
-export type { SignupFormProps };
-export { SignupForm };
+export type { SignUpFormProps };
+export { SignUpForm };

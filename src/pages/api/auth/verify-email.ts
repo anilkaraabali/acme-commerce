@@ -1,4 +1,4 @@
-import { readUsersFromFile } from '@/features/auth/user/util';
+import { readUsersFromFile } from '@/features/auth/utils/user';
 import { NextApiRequest, NextApiResponse } from 'next';
 
 export default async function handler(
