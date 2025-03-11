@@ -3,9 +3,8 @@ import fs from 'fs/promises';
 import args from 'args';
 
 import Logger from '../logger';
-import { ProductDetailResponse } from '@/features/product/services/product-detail.types';
-import { ProductResponse } from '@/features/product/services/product.types';
-import { ProductListingResponse } from '@/features/product/services/product-listing.types';
+import { ProductDetailResponse, ProductListingResponse, ProductResponse } from '@/features/product/services/types';
+
 
 const rootDir = path.resolve(__dirname, '../..');
 const publicDir = path.resolve(rootDir, 'public');
@@ -51,7 +50,7 @@ async function mergeProducts() {
     Logger.info('Starting to group products...');
     const groupedByTarget = products.reduce(
       (acc: { [key: string]: ProductResponse[] }, product) => {
-        const target = product.target;
+        const { target } = product;
 
         if (!acc[target]) {
           acc[target] = [];

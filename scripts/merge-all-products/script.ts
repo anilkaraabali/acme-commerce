@@ -3,9 +3,8 @@ import fs from 'fs/promises';
 import args from 'args';
 
 import Logger from '../logger';
-import { ProductResponse } from '@/features/product/services/product.types';
-import { ProductListingResponse } from '@/features/product/services/product-listing.types';
-import { productTargets } from '@/features/product/constants';
+import { productTargets } from '@/features/product';
+import { ProductListingResponse, ProductResponse } from '@/features/product/services/types';
 
 const rootDir = path.resolve(__dirname, '../..');
 const publicDir = path.resolve(rootDir, 'public');
