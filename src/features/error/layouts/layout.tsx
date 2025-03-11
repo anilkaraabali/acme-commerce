@@ -7,12 +7,12 @@ import { AbstractIntlMessages, useTranslations } from 'next-intl';
 import { FC } from 'react';
 import { LiaArrowRightSolid } from 'react-icons/lia';
 
-interface ErrorProps extends NextErrorProps {
+interface ErrorLayoutProps extends NextErrorProps {
   detail?: string;
   messages: AbstractIntlMessages;
 }
 
-const Error: FC<ErrorProps> = (props) => {
+const ErrorLayout: FC<ErrorLayoutProps> = (props) => {
   const t = useTranslations('Error');
 
   return (
@@ -47,5 +47,5 @@ const Error: FC<ErrorProps> = (props) => {
   );
 };
 
-export type { ErrorProps };
-export { Error };
+export type { ErrorLayoutProps };
+export { ErrorLayout };

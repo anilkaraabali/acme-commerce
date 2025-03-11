@@ -1,4 +1,4 @@
-import { ErrorProps } from '@/components/error';
+import { ErrorLayoutProps } from '@/features/error';
 import CustomError from '@/pages/_error';
 import { render, screen } from '@testing-library/react';
 import { NextPageContext } from 'next';
@@ -28,7 +28,7 @@ describe('_error', () => {
       res: { statusCode: 400 },
     } as NextPageContext;
 
-    let props: ErrorProps = {
+    let props: ErrorLayoutProps = {
       messages: {},
       statusCode: 200,
     };

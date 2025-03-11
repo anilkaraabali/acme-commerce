@@ -1,16 +1,18 @@
-import { Error, ErrorProps } from '@/components/error';
+import { ErrorLayout, ErrorLayoutProps } from '@/features/error';
 import { LocaleType } from '@/types';
 import { getMessages } from '@/utils';
 import { NextPage } from 'next';
 
-const CustomError: NextPage<ErrorProps> = (props) => <Error {...props} />;
+const CustomError: NextPage<ErrorLayoutProps> = (props) => (
+  <ErrorLayout {...props} />
+);
 
 CustomError.getInitialProps = async ({
   err,
   locale,
   req,
   res,
-}): Promise<ErrorProps> => {
+}): Promise<ErrorLayoutProps> => {
   if (req) {
     const statusCode = res?.statusCode || 500;
     const errorMessage = err?.message || 'Unknown error';
