@@ -1,7 +1,7 @@
 import type { GetServerSideProps } from 'next';
 
-import { ProductListProps } from '@/features/product/pages';
 import { productService } from '@/features/product/services';
+import { SearchPageProps } from '@/features/search/pages/page';
 import { LocaleType } from '@/types';
 import { getMessages, promiseAllSettled } from '@/utils';
 import { getServerSession } from 'next-auth';
@@ -27,6 +27,6 @@ export const getServerSideProps = (async (ctx) => {
       session: await getServerSession(ctx.req, ctx.res, authOptions),
     },
   };
-}) satisfies GetServerSideProps<ProductListProps>;
+}) satisfies GetServerSideProps<SearchPageProps>;
 
-export { default } from '@/features/product/pages/ProductList';
+export { default } from '@/features/search/pages/page';

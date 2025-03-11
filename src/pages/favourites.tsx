@@ -1,6 +1,6 @@
 import type { GetServerSideProps } from 'next';
 
-import { ProductFavouritesProps } from '@/features/product/pages';
+import { FavouritesPageProps } from '@/features/favourites/pages/page';
 import { LocaleType } from '@/types';
 import { getMessages } from '@/utils';
 import { getServerSession } from 'next-auth';
@@ -16,6 +16,6 @@ export const getServerSideProps = (async (ctx) => {
       session: await getServerSession(ctx.req, ctx.res, authOptions),
     },
   };
-}) satisfies GetServerSideProps<ProductFavouritesProps>;
+}) satisfies GetServerSideProps<FavouritesPageProps>;
 
-export { default } from '@/features/product/pages/ProductFavourites';
+export { default } from '@/features/favourites/pages/page';

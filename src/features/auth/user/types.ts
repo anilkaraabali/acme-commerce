@@ -1,4 +1,4 @@
-import { ProductReview } from '@/features/product/types';
+import { Review } from '@/components/reviews/types';
 
 interface IUser {
   email: string;
@@ -8,7 +8,7 @@ interface IUser {
   password: string;
   provider: null | string;
   providerId: null | string;
-  reviews: ProductReview[];
+  reviews: Review[];
 }
 
 export type { IUser };

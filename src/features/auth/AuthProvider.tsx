@@ -12,7 +12,7 @@ import {
 } from 'react';
 import { useReadLocalStorage } from 'usehooks-ts';
 
-import { PRODUCT_REVIEWS_STORAGE_KEY } from '../product/constants';
+import { PRODUCT_REVIEWS_STORAGE_KEY } from '../product/constants/reviews-key.constant';
 import { ProductReviewsMap } from '../product/types';
 import { IUser } from './user';
 

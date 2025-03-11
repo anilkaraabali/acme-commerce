@@ -1,6 +1,6 @@
 import type { GetServerSideProps } from 'next';
 
-import { ProductDetailProps } from '@/features/product/pages';
+import { ProductPageProps } from '@/features/product/pages/page';
 import { productService } from '@/features/product/services';
 import { LocaleType } from '@/types';
 import { getMessages, promiseAllSettled } from '@/utils';
@@ -40,6 +40,6 @@ export const getServerSideProps = (async (ctx) => {
       session: await getServerSession(ctx.req, ctx.res, authOptions),
     },
   };
-}) satisfies GetServerSideProps<ProductDetailProps>;
+}) satisfies GetServerSideProps<ProductPageProps>;
 
-export { default } from '@/features/product/pages/ProductDetail';
+export { default } from '@/features/product/pages/page';
