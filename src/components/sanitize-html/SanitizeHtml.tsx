@@ -1,14 +1,15 @@
+import { ElementType, FC } from 'react';
 import sanitizeHtml from 'sanitize-html';
 
 interface SanitizeHtmlProps {
   allowedAttributes?: Record<string, string[]>;
   allowedTags?: string[];
-  as?: React.ElementType;
+  as?: ElementType;
   className?: string;
   text: string;
 }
 
-export const SanitizeHtml: React.FC<SanitizeHtmlProps> = ({
+const SanitizeHtml: FC<SanitizeHtmlProps> = ({
   allowedAttributes,
   allowedTags,
   as: Component = 'div',
@@ -31,3 +32,5 @@ export const SanitizeHtml: React.FC<SanitizeHtmlProps> = ({
     {...rest}
   />
 );
+
+export { SanitizeHtml };

@@ -1,8 +1,8 @@
 import type { AppProps } from 'next/app';
 
-import { ErrorBoundary } from '@/components/error';
 import { fontMono, fontSans } from '@/config/fonts';
 import { AuthProvider } from '@/features/auth';
+import { ErrorBoundary } from '@/features/error';
 import { DefaultLayout, Head } from '@/layouts';
 import '@/styles/globals.css';
 import { HeroUIProvider, ToastProvider } from '@heroui/react';

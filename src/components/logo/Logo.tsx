@@ -37,12 +37,12 @@ const Logo = forwardRef<SVGSVGElement, LogoProps>(
           />
         </svg>
         <p
-          className={clsx('font-bold text-inherit', {
+          className={clsx('font-bold uppercase text-inherit', {
             'text-2xl': size === 'md',
             'text-4xl': size === 'lg',
           })}
         >
-          ACME
+          Acme
         </p>
       </NextLink>
     );
