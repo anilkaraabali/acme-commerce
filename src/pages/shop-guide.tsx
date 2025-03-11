@@ -1,6 +1,6 @@
 import type { GetServerSideProps } from 'next';
 
-import { PdfProps } from '@/features/pdf-viewer/layouts/Pdf';
+import { PdfPageProps } from '@/features/pdf/pages/page';
 import { LocaleType } from '@/types';
 import { getMessages } from '@/utils';
 import { getServerSession } from 'next-auth';
@@ -19,6 +19,6 @@ export const getServerSideProps = (async (ctx) => {
       title: 'Shopping guide',
     },
   };
-}) satisfies GetServerSideProps<PdfProps>;
+}) satisfies GetServerSideProps<PdfPageProps>;
 
-export { default } from '@/features/pdf-viewer/layouts/Pdf';
+export { default } from '@/features/pdf/pages/page';
