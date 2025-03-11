@@ -7,12 +7,11 @@ import 'react-pdf/dist/esm/Page/TextLayer.css';
 
 pdfjs.GlobalWorkerOptions.workerSrc = '/pdf.worker.js';
 
-interface PdfViewerProps {
+interface PdfReaderProps {
   fileName: string;
-  title: string;
 }
 
-const PdfViewer: FC<PdfViewerProps> = ({ fileName, title }) => {
+const PdfReader: FC<PdfReaderProps> = ({ fileName }) => {
   const [numPages, setNumPages] = useState<null | number>(null);
   const [initialWidth, setInitialWidth] = useState<number | undefined>(
     undefined
@@ -51,22 +50,19 @@ const PdfViewer: FC<PdfViewerProps> = ({ fileName, title }) => {
   );
 
   return (
-    <main>
-      <h1 className='page-title text-center'>{title}</h1>
-      <Document
-        className='flex flex-col items-center'
-        file={fileName}
-        loading={<CircularProgress size='lg' />}
-        onLoadSuccess={onDocumentLoadSuccess}
-      >
-        {numPages &&
-          list(numPages - 1).map((pageNumber) => (
-            <PageWrapper key={`page_${pageNumber}`} pageNumber={pageNumber} />
-          ))}
-      </Document>
-    </main>
+    <Document
+      className='flex flex-col items-center'
+      file={fileName}
+      loading={<CircularProgress size='lg' />}
+      onLoadSuccess={onDocumentLoadSuccess}
+    >
+      {numPages &&
+        list(numPages - 1).map((pageNumber) => (
+          <PageWrapper key={`page_${pageNumber}`} pageNumber={pageNumber} />
+        ))}
+    </Document>
   );
 };
 
-export type { PdfViewerProps };
-export { PdfViewer };
+export type { PdfReaderProps };
+export { PdfReader };
