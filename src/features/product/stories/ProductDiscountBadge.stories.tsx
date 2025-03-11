@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { ProductDiscountBadge } from '../components';
+import { ProductDiscountBadge } from '../components/ProductDiscountBadge';
 
 const meta: Meta<typeof ProductDiscountBadge> = {
   component: ProductDiscountBadge,

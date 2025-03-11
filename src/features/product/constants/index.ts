@@ -1,3 +1,3 @@
-export * from './product-reviews.constant';
-export * from './product-target.constant';
-export * from './products-per-page.constant';
+export * from './per-page.constant';
+export * from './reviews-key.constant';
+export * from './target.constant';
