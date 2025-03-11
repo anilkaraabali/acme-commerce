@@ -10,12 +10,12 @@ import NextLink from 'next/link';
 import { useTranslations } from 'next-intl';
 import { FC } from 'react';
 
-interface AuthFeaturesModalProps {
+interface UnlockFeaturesModalProps {
   isOpen: boolean;
   onOpenChange: (isOpen: boolean) => void;
 }
 
-const AuthFeaturesModal: FC<AuthFeaturesModalProps> = ({
+const UnlockFeaturesModal: FC<UnlockFeaturesModalProps> = ({
   isOpen,
   onOpenChange,
 }) => {
@@ -55,10 +55,20 @@ const AuthFeaturesModal: FC<AuthFeaturesModalProps> = ({
               </ul>
             </ModalBody>
             <ModalFooter>
-              <Button color='primary' onPress={onClose} variant='light'>
+              <Button
+                color='primary'
+                data-testid='auth-features-modal-cancel-button'
+                onPress={onClose}
+                variant='light'
+              >
                 {t('Common.cta.noThanks')}
               </Button>
-              <Button as={NextLink} color='primary' href='/auth/signin'>
+              <Button
+                as={NextLink}
+                color='primary'
+                data-testid='auth-features-modal-sign-in-link'
+                href='/auth/signin'
+              >
                 {t('Common.cta.signIn')}
               </Button>
             </ModalFooter>
@@ -69,5 +79,5 @@ const AuthFeaturesModal: FC<AuthFeaturesModalProps> = ({
   );
 };
 
-export type { AuthFeaturesModalProps };
-export { AuthFeaturesModal };
+export type { UnlockFeaturesModalProps };
+export { UnlockFeaturesModal };

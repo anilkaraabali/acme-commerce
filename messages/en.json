@@ -15,6 +15,11 @@
     "cta": "Return to the homepage"
   },
   "Auth": {
+    "password": {
+      "show": "Show password",
+      "hide": "Hide password",
+      "toggle": "Toggle password visibility"
+    },
     "signIn": {
       "prompt": {
         "question": "Don't have an account yet?",

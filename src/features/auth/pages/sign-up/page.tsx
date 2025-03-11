@@ -5,15 +5,15 @@ import Image from 'next/image';
 import { AbstractIntlMessages, useTranslations } from 'next-intl';
 import { useState } from 'react';
 
-import { SignupForm } from './SignupForm';
-import { SignupHeader } from './SignupHeader';
+import { SignUpForm } from '../../components/SignUpForm';
+import { SignUpHeader } from '../../components/SignUpHeader';
 
-interface SignUpProps {
+interface SignUpPageProps {
   messages: AbstractIntlMessages;
   referer: string;
 }
 
-function Signup(props: SignUpProps) {
+const SignUpPage = (props: SignUpPageProps) => {
   const t = useTranslations();
 
   const [step, setStep] = useState(0);
@@ -44,7 +44,7 @@ function Signup(props: SignUpProps) {
         </div>
       </aside>
       <section className='flex w-full flex-1 shrink grow basis-[10%] flex-col overflow-auto rounded-l-[16px] bg-background lg:-ml-4'>
-        <SignupHeader />
+        <SignUpHeader />
         <main className='mx-auto flex w-full max-w-lg flex-1 flex-col items-center justify-center px-5'>
           <div className='flex h-20 items-center justify-center'>
             <Logo size='md' />
@@ -54,61 +54,59 @@ function Signup(props: SignUpProps) {
           </p>
 
           {step === 0 ? (
-            <>
-              <div className='flex min-w-64 flex-col gap-4'>
-                <Button
-                  size='lg'
-                  startContent={
-                    <Image
-                      alt='Sign up with Google'
-                      height={24}
-                      src='/icons/socials/google.svg'
-                      width={24}
-                    />
-                  }
-                  variant='bordered'
-                >
-                  {t('Auth.signUp.cta.google')}
-                </Button>
-                <Button
-                  size='lg'
-                  startContent={
-                    <Image
-                      alt='Sign up with Facebook'
-                      height={24}
-                      src='/icons/socials/facebook.svg'
-                      width={24}
-                    />
-                  }
-                  variant='bordered'
-                >
-                  {t('Auth.signUp.cta.facebook')}
-                </Button>
-                <div className='text-center text-sm text-gray-500'>
-                  {t('Common.or').toUpperCase()}
-                </div>
-                <Button
-                  color='primary'
-                  fullWidth
-                  onPress={() => setStep(1)}
-                  size='lg'
-                  type='submit'
-                  variant='shadow'
-                >
-                  {t('Auth.signUp.cta.email')}
-                </Button>
+            <div className='flex min-w-64 flex-col gap-4'>
+              <Button
+                size='lg'
+                startContent={
+                  <Image
+                    alt=''
+                    height={24}
+                    src='/icons/socials/google.svg'
+                    width={24}
+                  />
+                }
+                variant='bordered'
+              >
+                {t('Auth.signUp.cta.google')}
+              </Button>
+              <Button
+                size='lg'
+                startContent={
+                  <Image
+                    alt=''
+                    height={24}
+                    src='/icons/socials/facebook.svg'
+                    width={24}
+                  />
+                }
+                variant='bordered'
+              >
+                {t('Auth.signUp.cta.facebook')}
+              </Button>
+              <div className='text-center text-sm text-gray-500'>
+                {t('Common.or').toUpperCase()}
               </div>
-            </>
+              <Button
+                color='primary'
+                fullWidth
+                onPress={() => setStep(1)}
+                size='lg'
+                type='submit'
+                variant='shadow'
+              >
+                {t('Auth.signUp.cta.email')}
+              </Button>
+            </div>
           ) : (
-            <SignupForm referer={props.referer} />
+            <SignUpForm referer={props.referer} />
           )}
         </main>
       </section>
     </div>
   );
-}
+};
 
-export type { SignUpProps };
-export default Signup;
+export type { SignUpPageProps };
+export default SignUpPage;
 
-Signup.getLayout = (page: NextPageWithLayout) => page;
+SignUpPage.getLayout = (page: NextPageWithLayout) => page;

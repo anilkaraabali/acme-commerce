@@ -1,3 +1,5 @@
+import { PRODUCT_REVIEWS_STORAGE_KEY } from '@/features/product/constants';
+import { ProductReviewsMap } from '@/features/product/types';
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import { useSession } from 'next-auth/react';
@@ -12,19 +14,20 @@ import {
 } from 'react';
 import { useReadLocalStorage } from 'usehooks-ts';
 
-import { PRODUCT_REVIEWS_STORAGE_KEY } from '../product/constants';
-import { ProductReviewsMap } from '../product/types';
-import { IUser } from './user';
+import { User } from '../types';
 
 interface AuthContextType {
   openAuthModal: () => void;
-  user: IUser | null;
+  user: User | null;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
-const LazyAuthFeaturesModal = dynamic(
-  () => import('./FeaturesModal').then((mod) => mod.AuthFeaturesModal),
+const LazyUnlockFeaturesModal = dynamic(
+  () =>
+    import('../components/UnlockFeaturesModal').then(
+      (mod) => mod.UnlockFeaturesModal
+    ),
   { ssr: false }
 );
 
@@ -42,7 +45,9 @@ const AuthProvider: FC<PropsWithChildren> = ({ children }) => {
 
   useEffect(() => {
     const handleRouteChange = () => {
-      setIsOpen(false);
+      if (isOpen) {
+        setIsOpen(false);
+      }
     };
 
     router.events.on('routeChangeStart', handleRouteChange);
@@ -76,7 +81,7 @@ const AuthProvider: FC<PropsWithChildren> = ({ children }) => {
     >
       {children}
       {isOpen && (
-        <LazyAuthFeaturesModal isOpen={isOpen} onOpenChange={setIsOpen} />
+        <LazyUnlockFeaturesModal isOpen={isOpen} onOpenChange={setIsOpen} />
       )}
     </AuthContext.Provider>
   );
