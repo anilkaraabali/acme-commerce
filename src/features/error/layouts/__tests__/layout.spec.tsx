@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 
-import { ErrorLayout } from '../ErrorLayout';
+import { ErrorLayout } from '../layout';
 
 describe('ErrorLayout', () => {
   it('matches snapshot', () => {

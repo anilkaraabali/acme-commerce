@@ -1,1 +1,1 @@
-export * from './ErrorLayout';
+export * from './layout';
