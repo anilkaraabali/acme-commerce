@@ -1,7 +1,6 @@
-// @ts-check
+import type { Linter } from 'eslint';
 
-/** @type {import('eslint').Linter.BaseConfig} */
-module.exports = {
+const config: Linter.Config = {
   env: {
     browser: true,
     es2021: true,
@@ -15,9 +14,8 @@ module.exports = {
     'plugin:perfectionist/recommended-natural',
     'plugin:tailwindcss/recommended',
     'plugin:testing-library/react',
-    'plugin:jest-formatting/recommended',
     'plugin:jest-dom/recommended',
-    'plugin:jest/recommended',
+    'plugin:vitest/recommended',
     'plugin:storybook/recommended',
   ],
   globals: {
@@ -25,39 +23,18 @@ module.exports = {
     React: true,
   },
   ignorePatterns: ['node_modules', 'dist', '!/.storybook'],
-  overrides: [
-    {
-      files: ['*.ts', '*.tsx'],
-      parserOptions: {
-        ecmaFeatures: {
-          jsx: true,
-        },
-        ecmaVersion: 12,
-        sourceType: 'module',
-      },
-    },
-    {
-      extends: ['plugin:testing-library/react'],
-      files: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[jt]s?(x)'],
-      rules: {
-        'jest-formatting/padding-around-expect-groups': 2,
-      },
-    },
-  ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
     },
-    ecmaVersion: 12,
+    ecmaVersion: 2023,
     sourceType: 'module',
   },
   plugins: [
     '@typescript-eslint',
     'perfectionist',
-    'jest',
     'jest-dom',
-    'jest-formatting',
     'testing-library',
     'tailwindcss',
   ],
@@ -115,3 +92,5 @@ module.exports = {
     },
   },
 };
+
+export default config;

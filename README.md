@@ -18,7 +18,7 @@ Acme Commerce is built with a modern stack to deliver a top-notch e-commerce exp
 - [Tailwind CSS](https://tailwindcss.com/) 🌈: Utility-first styling for fast development.
 - [Storybook](https://storybook.js.org/) 📖: Develop and test UI components in isolation.
 - [NextAuth.js](https://next-auth.js.org/) 🔒: Secure authentication and user management.
-- [Jest](https://jestjs.io/) & [React Testing Library](https://testing-library.com/) 🧪: For reliable testing and bug-free code.
+- [Vitest](https://vitest.dev/) & [React Testing Library](https://testing-library.com/) 🧪: For reliable testing and bug-free code.
 - TypeScript 💻: Type safety for smoother development.
 - [HeroUI](https://www.heroui.com/) 🎨: A design system for consistent UI components.
 - [Next-Intl](https://next-intl.dev/) 🌍: For internationalization and localization support.
@@ -91,7 +91,7 @@ pnpm dev
 
 ## Running Tests 🧪
 
-This project uses Jest for running unit and integration tests.
+This project uses Vitest for running unit tests.
 
 To run the tests, use the following command:
 
