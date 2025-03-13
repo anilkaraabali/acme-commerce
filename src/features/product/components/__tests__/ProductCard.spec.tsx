@@ -1,11 +1,12 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { useLocalStorage } from 'usehooks-ts';
+import { vi, expect, test, describe } from 'vitest';
 
 import { ProductListingData } from '../../types';
 import { ProductCard } from '../ProductCard';
 
-jest.mock('usehooks-ts', () => ({
-  useLocalStorage: jest.fn(() => [[], jest.fn()]),
+vi.mock('usehooks-ts', () => ({
+  useLocalStorage: vi.fn(() => [[], vi.fn()]),
 }));
 
 const mockProduct: ProductListingData['data']['products'][0] = {
@@ -38,7 +39,7 @@ const mockProduct: ProductListingData['data']['products'][0] = {
 };
 
 describe('ProductCard', () => {
-  it('renders the product card correctly', () => {
+  test('renders the product card correctly', () => {
     render(<ProductCard index={0} product={mockProduct} />);
 
     expect(screen.getByTestId('product-card')).toBeInTheDocument();
@@ -50,13 +51,13 @@ describe('ProductCard', () => {
     expect(screen.getByTestId('product-discount')).toBeInTheDocument();
   });
 
-  it('renders the limited edition label', () => {
+  test('renders the limited edition label', () => {
     render(<ProductCard index={0} product={mockProduct} />);
 
     expect(screen.getByText('limitedEdition')).toBeInTheDocument();
   });
 
-  it('renders the out of stock label when applicable', () => {
+  test('renders the out of stock label when applicable', () => {
     render(
       <ProductCard index={0} product={{ ...mockProduct, outOfStock: true }} />
     );
@@ -64,16 +65,20 @@ describe('ProductCard', () => {
     expect(screen.getByText('outOfStock')).toBeInTheDocument();
   });
 
-  it('renders color variants when available', () => {
+  test('renders color variants when available', () => {
     render(<ProductCard index={0} product={mockProduct} />);
 
     expect(screen.getAllByRole('link', { name: /red|blue/i })).toHaveLength(2);
   });
 
-  it('toggles favorite button when clicked', () => {
-    const setUserFavoritesMock = jest.fn();
+  test('toggles favorite button when clicked', () => {
+    const setUserFavoritesMock = vi.fn();
 
-    (useLocalStorage as jest.Mock).mockReturnValue([[], setUserFavoritesMock]);
+    vi.mocked(useLocalStorage).mockReturnValue([
+      [],
+      setUserFavoritesMock,
+      vi.fn,
+    ]);
 
     render(<ProductCard index={0} product={mockProduct} />);
 
