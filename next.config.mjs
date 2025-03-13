@@ -8,6 +8,9 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  experimental: {
+    instrumentationHook: true,
+  },
   i18n: {
     defaultLocale: 'en',
     localeDetection: false,
