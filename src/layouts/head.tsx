@@ -14,7 +14,7 @@ const Head = () => (
         name='viewport'
       />
       <meta content='#FAFAFA' name='theme-color' />
-      <link href='/favicon.ico' rel='icon' />
+      <link href='/favicon/favicon.ico' rel='icon' />
     </NextHead>
   </>
 );
